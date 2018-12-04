@@ -17,4 +17,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/list/list', 'ListController@list');
+Route::get('/list/{gitHubUser}', 'MainController@listRepositories');

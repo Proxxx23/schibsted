@@ -8,8 +8,6 @@ use App\Objects\DTO\RepositoryDetailsDTO;
 use App\Objects\DTO\RepositoryDetailsDTOCollection;
 use App\Objects\DTO\UserRepositoryDTOCollection;
 use App\Repositories\GithubRepository;
-use mysql_xdevapi\Exception;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class GithubService

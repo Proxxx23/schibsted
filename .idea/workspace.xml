@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b4f769d-76e9-4617-bb6f-a6a06d2dae0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/ApiConst.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Objects/Commands/DetailedStatisticsCommandCollection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTOCollection.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StatisticsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StatisticsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Objects/Commands/RepositoryDetailedStatisticsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Objects/Commands/DetailedStatisticsCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Objects/Common/CommonCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Objects/Common/CommonCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/GithubRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/GithubRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/GithubService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/GithubService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Services/GithubService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+            <state relative-caret-position="294">
+              <caret line="68" column="20" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
               <folding>
                 <element signature="e#57#108#0#PHP" expanded="true" />
               </folding>
@@ -46,22 +37,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTOCollection.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatisticsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="78" column="37" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
+            <state relative-caret-position="102">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
               <folding>
-                <element signature="e#65#82#0#PHP" expanded="true" />
+                <element signature="e#60#110#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,7 +52,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Objects/Commands/DetailedStatisticsCommandCollection.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
+            <state relative-caret-position="612">
               <caret line="63" column="20" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
               <folding>
                 <element signature="e#65#82#0#PHP" expanded="true" />
@@ -93,18 +75,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
               <caret line="130" column="18" selection-start-line="130" selection-start-column="18" selection-end-line="130" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-              <folding>
-                <element signature="e#65#104#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -180,10 +150,10 @@
         <option value="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTOCollection.php" />
         <option value="$PROJECT_DIR$/app/Objects/Common/CommonCollection.php" />
         <option value="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTO.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/StatisticsController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
         <option value="$PROJECT_DIR$/app/Repositories/GithubRepository.php" />
         <option value="$PROJECT_DIR$/app/Services/GithubService.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/StatisticsController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
       </list>
     </option>
   </component>
@@ -437,18 +407,18 @@
       <option name="presentableId" value="Default" />
       <updated>1543958855855</updated>
       <workItem from="1543958858123" duration="3340000" />
-      <workItem from="1544032071049" duration="14655000" />
+      <workItem from="1544032071049" duration="15127000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17995000" />
+    <option name="totallyTimeSpent" value="18467000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1358" height="814" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2919877" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2919877" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -712,13 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/http-foundation/Response.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="130" column="18" selection-start-line="130" selection-start-column="18" selection-end-line="130" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Objects/DTO/ValidatorInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -726,19 +689,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-          <folding>
-            <element signature="e#65#104#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Objects/Commands/DetailedStatisticsCommandCollection.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
+        <state relative-caret-position="612">
           <caret line="63" column="20" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
           <folding>
             <element signature="e#65#82#0#PHP" expanded="true" />
@@ -746,10 +699,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/GithubService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="68" column="20" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
+          <folding>
+            <element signature="e#57#108#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="19" lean-forward="true" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+          <folding>
+            <element signature="e#65#104#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/http-foundation/Response.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="130" column="18" selection-start-line="130" selection-start-column="18" selection-end-line="130" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatisticsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="78" column="37" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
+        <state relative-caret-position="464">
+          <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
           <folding>
             <element signature="e#65#82#0#PHP" expanded="true" />
           </folding>
@@ -758,17 +738,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTOCollection.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/GithubService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+        <state relative-caret-position="102">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
           <folding>
-            <element signature="e#57#108#0#PHP" expanded="true" />
+            <element signature="e#60#110#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

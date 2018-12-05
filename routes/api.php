@@ -21,5 +21,5 @@ Route::get('/info/repositories/{gitHubUser}', 'InformationController@listUserRep
 Route::get('/info/detailed/{gitHubUser}', 'InformationController@userDetails');
 
 Route::get('/stats/detailed/{username}/{repository}', 'StatisticsController@repositoryDetails');
-Route::get('/stats/compare/{repositoryFirstLink}/{repositorySecondLink}',
+Route::get('/stats/compare/{firstRepositorySet}/{secondRespositorySet}',
             'StatisticsController@compareRepositories');

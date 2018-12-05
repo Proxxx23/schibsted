@@ -3,10 +3,10 @@
 namespace App\Objects\Commands;
 
 /**
- * Class RepositoryDetailedStatisticsCommand
+ * Class DetailedStatisticsCommand
  * @package App\Objects\Commands
  */
-final class RepositoryDetailedStatisticsCommand
+final class DetailedStatisticsCommand
 {
     /**
      * @var string $username
@@ -28,9 +28,9 @@ final class RepositoryDetailedStatisticsCommand
 
     /**
      * @param string $username
-     * @return RepositoryDetailedStatisticsCommand
+     * @return DetailedStatisticsCommand
      */
-    public function setUsername(string $username): RepositoryDetailedStatisticsCommand
+    public function setUsername(string $username): DetailedStatisticsCommand
     {
         $this->username = $username;
         return $this;
@@ -46,9 +46,9 @@ final class RepositoryDetailedStatisticsCommand
 
     /**
      * @param string $repositoryName
-     * @return RepositoryDetailedStatisticsCommand
+     * @return DetailedStatisticsCommand
      */
-    public function setRepositoryName(string $repositoryName): RepositoryDetailedStatisticsCommand
+    public function setRepositoryName(string $repositoryName): DetailedStatisticsCommand
     {
         $this->repositoryName = $repositoryName;
         return $this;

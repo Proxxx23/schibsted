@@ -2,13 +2,14 @@
 
 namespace App\Services;
 
-use App\Objects\Commands\RepositoryDetailedStatisticsCommand;
+use App\Objects\Commands\DetailedStatisticsCommand;
+use App\Objects\Commands\DetailedStatisticsCommandCollection;
 use App\Objects\DTO\RepositoryDetailsDTO;
-use App\Objects\DTO\UserRepositoryDTO;
+use App\Objects\DTO\RepositoryDetailsDTOCollection;
 use App\Objects\DTO\UserRepositoryDTOCollection;
-use App\Objects\DTO\ValidatorInterface;
 use App\Repositories\GithubRepository;
-use function Couchbase\defaultDecoder;
+use mysql_xdevapi\Exception;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class GithubService
@@ -37,24 +38,48 @@ final class GithubService
     /**
      * Zwraca dane dotyczące konkretnego repozytorium użytkownika
      *
-     * @param RepositoryDetailedStatisticsCommand $repositoryDetailedStatisticsCommand
+     * @param DetailedStatisticsCommand $detailedStatisticsCommand
      * @return RepositoryDetailsDTO
      * @throws \App\Exceptions\InvalidCollectionTypeException
      */
     public function getRepositoryDetailedStatistics(
-        RepositoryDetailedStatisticsCommand $repositoryDetailedStatisticsCommand
+        DetailedStatisticsCommand $detailedStatisticsCommand
     ): RepositoryDetailsDTO
     {
         $watchersStarsDates = $this->repository
-            ->getStarsAndWatchersStatistics($repositoryDetailedStatisticsCommand);
-
+            ->getStarsAndWatchersStatistics($detailedStatisticsCommand);
         $pullsAndForks = $this->repository
-            ->getPullsAndForksStatistics($repositoryDetailedStatisticsCommand);
+            ->getPullsAndForksStatistics($detailedStatisticsCommand);
+
+        $username = $detailedStatisticsCommand->getUsername();
+        $repositoryName = $detailedStatisticsCommand->getRepositoryName();
 
         return new RepositoryDetailsDTO(
             $watchersStarsDates,
-            $pullsAndForks
+            $pullsAndForks,
+            $username,
+            $repositoryName
         );
+
     }
 
+    /**
+     * @param DetailedStatisticsCommandCollection $detailedStatisticsCommandCollection
+     * @return RepositoryDetailsDTOCollection
+     * @throws \App\Exceptions\InvalidCollectionTypeException
+     */
+    public function getComparedRepositoriesStatistics(
+        DetailedStatisticsCommandCollection $detailedStatisticsCommandCollection
+    ): RepositoryDetailsDTOCollection
+    {
+
+        $repositoryDetailsDTOCollection = new RepositoryDetailsDTOCollection();
+        foreach($detailedStatisticsCommandCollection->getCollectionElements() as $repoData) {
+            $repositoryDetailsDTO = $this->getRepositoryDetailedStatistics($repoData);
+            $repositoryDetailsDTOCollection->addCollectionElement($repositoryDetailsDTO);
+        }
+
+        return $repositoryDetailsDTOCollection;
+
+    }
 }

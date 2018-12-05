@@ -23,11 +23,26 @@ class CommonCollection implements ValidatorInterface
     /**
      * Dodaje element do kolekcji
      *
-     * @param $element
+     * @param object $element
      */
     public function addCollectionElement($element): void
     {
         $this->elements[] = $element;
+    }
+
+    /**
+     * Dodaje kilka elementów do kolekcji
+     *
+     * @param object ...$elements
+     */
+    public function addCollectionElements(...$elements): void
+    {
+        $elements = reset($elements);
+        $elementsCount = count($elements);
+
+        for ($i = 0; $i < $elementsCount; $i++) {
+            $this->elements[] = $elements[$i];
+        }
     }
 
     /**

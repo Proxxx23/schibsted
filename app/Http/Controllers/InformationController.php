@@ -4,27 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Repositories\GithubRepository;
 use App\Services\GithubService;
+use Illuminate\Http\Response;
 
 /**
- * Class MainController
+ * Class InformationController
  * @package App\Http\Controllers
  */
-final class MainController extends Controller
+final class InformationController extends Controller
 {
 
-    public function listRepositories(string $gitHubUser)
+    public function listUserRepositories(string $gitHubUser): Response
     {
         $service = new GithubService(new GithubRepository());
-        $result = $service->getUserRepositoriesList($gitHubUser)->getCollectionElements();
-        dd($result);die();
+        $result = $service->getUserRepositoriesList($gitHubUser);
+        return $this->prepareResponse($result);
     }
 
     public function basicStatistics()
-    {
-
-    }
-
-    public function compareStatistics()
     {
 
     }

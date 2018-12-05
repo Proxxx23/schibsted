@@ -13,8 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 
-Route::get('/list/{gitHubUser}', 'MainController@listRepositories');
+Route::get('/info/repositories/{gitHubUser}', 'InformationController@listUserRepositories');
+Route::get('/info/detailed/{gitHubUser}', 'InformationController@userDetails');
+
+Route::get('/stats/detailed/{username}/{repository}', 'StatisticsController@repositoryDetails');
+Route::get('/stats/compare/{repositoryFirstLink}/{repositorySecondLink}',
+            'StatisticsController@compareRepositories');

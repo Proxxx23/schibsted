@@ -2,8 +2,13 @@
 
 namespace App\Services;
 
-use App\ApiObjects\DTO\UserRepositoryDTOCollection;
+use App\Objects\Commands\RepositoryDetailedStatisticsCommand;
+use App\Objects\DTO\RepositoryDetailsDTO;
+use App\Objects\DTO\UserRepositoryDTO;
+use App\Objects\DTO\UserRepositoryDTOCollection;
+use App\Objects\DTO\ValidatorInterface;
 use App\Repositories\GithubRepository;
+use function Couchbase\defaultDecoder;
 
 /**
  * Class GithubService
@@ -26,7 +31,30 @@ final class GithubService
 
     public function getUserRepositoriesList(string $gitHubUser): UserRepositoryDTOCollection
     {
-        return $this->repository->getUserRepositoriesList($gitHubUser);
+        return $this->repository->getStarsAndWatchersStatistics($gitHubUser);
+    }
+
+    /**
+     * Zwraca dane dotyczące konkretnego repozytorium użytkownika
+     *
+     * @param RepositoryDetailedStatisticsCommand $repositoryDetailedStatisticsCommand
+     * @return RepositoryDetailsDTO
+     * @throws \App\Exceptions\InvalidCollectionTypeException
+     */
+    public function getRepositoryDetailedStatistics(
+        RepositoryDetailedStatisticsCommand $repositoryDetailedStatisticsCommand
+    ): RepositoryDetailsDTO
+    {
+        $watchersStarsDates = $this->repository
+            ->getStarsAndWatchersStatistics($repositoryDetailedStatisticsCommand);
+
+        $pullsAndForks = $this->repository
+            ->getPullsAndForksStatistics($repositoryDetailedStatisticsCommand);
+
+        return new RepositoryDetailsDTO(
+            $watchersStarsDates,
+            $pullsAndForks
+        );
     }
 
 }

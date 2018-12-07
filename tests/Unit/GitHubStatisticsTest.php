@@ -8,10 +8,10 @@ use App\Objects\Queries\DetailedStatisticsQueryCollection;
 use Tests\TestCase;
 
 /**
- * Class Test
+ * Class GitHubStatisticsTest
  * @package Tests\Unit
  */
-class Test extends TestCase
+class GitHubStatisticsTest extends TestCase
 {
     /**
      * @var array $dataMock

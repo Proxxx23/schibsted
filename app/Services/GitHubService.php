@@ -9,16 +9,16 @@ use App\Objects\DTO\RepositoryComparisonDTO;
 use App\Objects\DTO\RepositoryDetailsDTO;
 use App\Objects\DTO\RepositoryDetailsDTOCollection;
 use App\Objects\DTO\UserRepositoryDTOCollection;
-use App\Repositories\GithubRepository;
+use App\Repositories\GitHubRepository;
 
 /**
- * Class GithubService
+ * Class GitHubService
  * @package App\Services
  */
-final class GithubService
+final class GitHubService
 {
     /**
-     * @var GithubRepository $repository
+     * @var GitHubRepository $repository
      */
     private $repository;
 
@@ -28,12 +28,12 @@ final class GithubService
     private $statistics;
 
     /**
-     * GithubService constructor.
-     * @param GithubRepository $githubRepository
+     * GitHubService constructor.
+     * @param GitHubRepository $githubRepository
      * @param StatisticsCounter $statisticsCounter
      */
     public function __construct(
-        GithubRepository $githubRepository,
+        GitHubRepository $githubRepository,
         StatisticsCounter $statisticsCounter
     ) {
         $this->repository = $githubRepository;

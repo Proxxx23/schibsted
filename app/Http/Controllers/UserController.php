@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Objects\Common\ProblemResponse;
-use App\Repositories\GithubRepository;
-use App\Services\GithubService;
+use App\Repositories\GitHubRepository;
+use App\Services\GitHubService;
 use App\Services\StatisticsCounter;
 use App\ValidationConst;
 use Illuminate\Http\Response;
@@ -31,7 +31,7 @@ final class UserController extends Controller
             );
         }
 
-        $service = new GithubService(new GithubRepository(), new StatisticsCounter());
+        $service = new GitHubService(new GitHubRepository(), new StatisticsCounter());
         return $this->prepareResponse(
             $service->getUserDetails($gitHubUser)
         );

@@ -10,16 +10,16 @@ use App\Objects\SimpleObjects\PullsAndForks;
 use App\Objects\SimpleObjects\StarsAndDates;
 
 /**
- * Class GithubRepository
+ * Class GitHubRepository
  * @package App\Repositories
  */
-final class GithubRepository
+final class GitHubRepository
 {
     /** @var \Github\Client $github */
     private $github;
 
     /**
-     * GithubRepository constructor.
+     * GitHubRepository constructor.
      */
     public function __construct()
     {

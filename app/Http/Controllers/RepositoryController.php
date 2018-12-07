@@ -6,8 +6,8 @@ use App\ApiConst;
 use App\Objects\Common\ProblemResponse;
 use App\Objects\Queries\DetailedStatisticsQuery;
 use App\Objects\Queries\DetailedStatisticsQueryCollection;
-use App\Repositories\GithubRepository;
-use App\Services\GithubService;
+use App\Repositories\GitHubRepository;
+use App\Services\GitHubService;
 use App\Services\StatisticsCounter;
 use App\ValidationConst;
 use Illuminate\Http\Response;
@@ -34,7 +34,7 @@ final class RepositoryController extends Controller
             );
         }
 
-        $service = new GithubService(new GithubRepository(), new StatisticsCounter());
+        $service = new GitHubService(new GitHubRepository(), new StatisticsCounter());
         return $this->prepareResponse(
             $service->getUserRepositoriesList($gitHubUser)
         );
@@ -53,7 +53,7 @@ final class RepositoryController extends Controller
             ->setUsername($username)
             ->setRepositoryName($repository);
 
-        $repositoryService = new GithubService(new GithubRepository(), new StatisticsCounter());
+        $repositoryService = new GitHubService(new GitHubRepository(), new StatisticsCounter());
 
         return $this->prepareResponse(
             $repositoryService->getRepositoryDetailedStatistics($detailedStatisticsCommand)
@@ -94,7 +94,7 @@ final class RepositoryController extends Controller
             $secondRepoStatisticsQuery
         );
 
-        $repositoryService = new GithubService(new GithubRepository(), new StatisticsCounter());
+        $repositoryService = new GitHubService(new GitHubRepository(), new StatisticsCounter());
 
         return $this->prepareResponse(
             $repositoryService->getRepositoriesComparedStatistics($statisticsQueryCollection)

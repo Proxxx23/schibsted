@@ -22,4 +22,4 @@ This application provides useful and convenient way to show statistics of GutHub
 
 Working server-side API: http://schibsted.piwolucja.pl/
 
-### !!! Please note that GitHub API allows only to make 60 requests. Comparison uses 6 requests! 
+### !!! Please note that GitHub API allows only to make 60 requests. Comparison uses 5 requests! 

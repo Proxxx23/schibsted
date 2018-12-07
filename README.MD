@@ -1,9 +1,9 @@
 This application provides useful and convenient way to show statistics of GutHub user or user's repositories. What's more, it provides simple way to compare two repositories.
 
 ## To boot up an application using local environment:
-1) Run "composer install" command/
-2) Run "php artisan serve" command or run up you local server/
-3) Optionally, run test from /tests/Unit/ catalog/
+1) Run "composer install" command.
+2) Run "php artisan serve" command or run up you local server.
+3) Optionally, run test from /tests/Unit/ catalog.
 4) Head to the 127.0.0.1:8000 website or website configured by your local server.
 
 ## Application has 4 abilities:

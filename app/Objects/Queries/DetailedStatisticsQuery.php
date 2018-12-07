@@ -2,6 +2,9 @@
 
 namespace App\Objects\Queries;
 
+use App\Objects\Common\ProblemResponse;
+use App\ValidationConst;
+
 /**
  * Class DetailedStatisticsQuery
  * @package App\Objects\Queries
@@ -52,5 +55,28 @@ final class DetailedStatisticsQuery
     {
         $this->repositoryName = $repositoryName;
         return $this;
+    }
+
+    /**
+     * Validator
+     *
+     * @return ProblemResponse|null
+     */
+    public function validate(): ?ProblemResponse
+    {
+        if (false !== strpos('http://', $this->repositoryName) ||
+            false !== strpos('www.', $this->repositoryName)) {
+            return (new ProblemResponse())
+                ->setHttpCode(400)
+                ->setMessage(ValidationConst::PROVIDE_REPOSITORY_NAME);
+        }
+
+        if (strlen($this->username) <= 1 || strlen($this->repositoryName) <= 1) {
+            (new ProblemResponse())
+                ->setHttpCode(400)
+                ->setMessage(ValidationConst::INVALID_LENGTH);
+        }
+
+        return null;
     }
 }

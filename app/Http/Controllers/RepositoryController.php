@@ -53,6 +53,10 @@ final class RepositoryController extends Controller
             ->setUsername($username)
             ->setRepositoryName($repository);
 
+        if (null !== $detailedStatisticsCommand->validate()) {
+            return $this->problemResponse($detailedStatisticsCommand->validate());
+        }
+
         $repositoryService = new GitHubService(new GitHubRepository(), new StatisticsCounter());
 
         return $this->prepareResponse(
@@ -74,7 +78,10 @@ final class RepositoryController extends Controller
         $secondRepository = explode(':', $secondSet);
 
         if (count($firstRepository) < 2 || count($secondRepository) < 2) {
-            return new Response(ApiConst::PROVIDE_WITH_COLON, 400);
+            $problemResponse = (new ProblemResponse())
+                ->setMessage(ApiConst::PROVIDE_WITH_COLON)
+                ->setHttpCode(400);
+            return $this->problemResponse($problemResponse);
         }
 
         [$firstUsername, $firstRepositoryName] = $firstRepository;
@@ -84,9 +91,17 @@ final class RepositoryController extends Controller
             ->setUsername($firstUsername)
             ->setRepositoryName($firstRepositoryName);
 
+        if (null !== $firstRepoStatisticsQuery->validate()) {
+            return $this->problemResponse($firstRepoStatisticsQuery->validate());
+        }
+
         $secondRepoStatisticsQuery = (new DetailedStatisticsQuery())
             ->setUsername($secondUsername)
             ->setRepositoryName($secondRepositoryName);
+
+        if (null !== $secondRepoStatisticsQuery->validate()) {
+            return $this->problemResponse($secondRepoStatisticsQuery->validate());
+        }
 
         $statisticsQueryCollection = new DetailedStatisticsQueryCollection();
         $statisticsQueryCollection->addCollectionElements(

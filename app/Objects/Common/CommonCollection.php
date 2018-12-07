@@ -2,6 +2,7 @@
 
 namespace App\Objects\Common;
 
+use App\Exceptions\Handler;
 use App\Objects\DTO\ResponseInterface;
 
 /**

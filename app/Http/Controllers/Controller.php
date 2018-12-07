@@ -15,19 +15,26 @@ class Controller extends BaseController
 {
 
     /**
+     * Prepares response to show to user
+     *
      * @param ResponseInterface $result
      * @return Response
      */
     protected function prepareResponse(ResponseInterface $result): Response
     {
         if (empty($result->toArray())) {
-            return new Response(Response::$statusTexts[204], Response::HTTP_NO_CONTENT);
+            $problemResponse = (new ProblemResponse())
+                ->setHttpCode(Response::HTTP_NO_CONTENT)
+                ->setMessage(Response::$statusTexts[204]);
+            return $this->problemResponse($problemResponse);
         }
 
         return new Response($result->toJson(), Response::HTTP_OK);
     }
 
     /**
+     * Returns response with error code
+     *
      * @param ProblemResponse $problemResponse
      * @return Response
      */

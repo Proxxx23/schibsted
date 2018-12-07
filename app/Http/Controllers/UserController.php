@@ -24,11 +24,10 @@ final class UserController extends Controller
     public function userDetails(string $gitHubUser): Response
     {
         if (strlen($gitHubUser) <= 1) {
-            return $this->problemResponse(
-                (new ProblemResponse())
-                    ->setHttpCode(400)
-                    ->setMessage(ValidationConst::INVALID_LENGTH)
-            );
+            $problemResponse = (new ProblemResponse())
+                ->setHttpCode(400)
+                ->setMessage(ValidationConst::INVALID_LENGTH);
+            return $this->problemResponse($problemResponse);
         }
 
         $service = new GitHubService(new GitHubRepository(), new StatisticsCounter());

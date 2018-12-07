@@ -71,19 +71,19 @@ final class GitHubService
     public function getRepositoryDetailedStatistics(
         DetailedStatisticsQuery $detailedStatisticsCommand
     ): RepositoryDetailsDTO {
-        $watchersStarsDates = $this->repository
-            ->getStarsWatchersAndDateStatistics($detailedStatisticsCommand);
-        $pullsAndForks = $this->repository
-            ->getPullsAndForksStatistics($detailedStatisticsCommand);
+        $detailedInfo = $this->repository
+            ->getRepositoryDetailedInfo($detailedStatisticsCommand);
+        $pullRequestsCount = $this->repository
+            ->getPullRequestsCount($detailedStatisticsCommand);
 
         $username = $detailedStatisticsCommand->getUsername();
         $repositoryName = $detailedStatisticsCommand->getRepositoryName();
 
         return new RepositoryDetailsDTO(
-            $watchersStarsDates,
-            $pullsAndForks,
             $username,
-            $repositoryName
+            $repositoryName,
+            $detailedInfo,
+            $pullRequestsCount
         );
     }
 

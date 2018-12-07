@@ -6,8 +6,8 @@ use App\Objects\DTO\UserDetailsDTO;
 use App\Objects\DTO\UserRepositoryDTO;
 use App\Objects\DTO\UserRepositoryDTOCollection;
 use App\Objects\Queries\DetailedStatisticsQuery;
-use App\Objects\SimpleObjects\PullsAndForks;
-use App\Objects\SimpleObjects\StarsAndDates;
+use App\Objects\DTO\PullStatisticsDTO;
+use App\Objects\DTO\DetailedStatisticsDTO;
 
 /**
  * Class GitHubRepository
@@ -59,51 +59,44 @@ final class GitHubRepository
     }
 
     /**
-     * Completes data about stars number, watchers number and repository last update date
+     * Completes data about stars, watchers, forks count and repository last update date
      *
      * @param DetailedStatisticsQuery $repositoryDetailedStatisticsCommand
-     * @return StarsAndDates
+     * @return DetailedStatisticsDTO
      */
-    public function getStarsWatchersAndDateStatistics(
+    public function getRepositoryDetailedInfo(
         DetailedStatisticsQuery $repositoryDetailedStatisticsCommand
-    ): StarsAndDates
+    ): DetailedStatisticsDTO
     {
         $username = $repositoryDetailedStatisticsCommand->getUsername();
         $repositoryName = $repositoryDetailedStatisticsCommand->getRepositoryName();
 
         $details = $this->github->api('repos')->show($username, $repositoryName);
 
-        return (new StarsAndDates())
-            ->setStarsCount($details['stargazers_count'])
-            ->setWatchersCount($details['watchers_count'])
-            ->setUpdatedAt($details['updated_at']);
+        return new DetailedStatisticsDTO($details);
     }
 
     /**
-     * Completes data about pull and forks number
+     * Completes data about pull and forks count
      *
      * @param DetailedStatisticsQuery $repositoryDetailedStatisticsCommand
-     * @return PullsAndForks
+     * @return PullStatisticsDTO
      */
-    public function getPullsAndForksStatistics(
+    public function getPullRequestsCount(
         DetailedStatisticsQuery $repositoryDetailedStatisticsCommand
-    ): PullsAndForks
+    ): PullStatisticsDTO
     {
         $username = $repositoryDetailedStatisticsCommand->getUsername();
         $repositoryName = $repositoryDetailedStatisticsCommand->getRepositoryName();
 
         $openPullRequestsCount = $this->getOpenPullRequestsCount($username, $repositoryName);
         $closedPullRequestsCount = $this->getClosedPullRequestsCount($username, $repositoryName);
-        $forksCount = $this->getForksCount($username, $repositoryName);
 
-        return (new PullsAndForks)
-            ->setOpenPullRequests($openPullRequestsCount)
-            ->setClosedPullRequests($closedPullRequestsCount)
-            ->setForks($forksCount);
+        return new PullStatisticsDTO($openPullRequestsCount, $closedPullRequestsCount);
     }
 
     /**
-     * Returns open pull requests number
+     * Returns open pull requests count
      *
      * @param string $username
      * @param string $repositoryName
@@ -118,7 +111,7 @@ final class GitHubRepository
     }
 
     /**
-     * Returns closed pull requests number
+     * Returns closed pull requests count
      *
      * @param string $username
      * @param string $repositoryName
@@ -130,19 +123,5 @@ final class GitHubRepository
             ->all($username, $repositoryName, [
                 'state' => 'closed'
             ]));
-    }
-
-    /**
-     * Returns forks number
-     *
-     * @param string $username
-     * @param string $repositoryName
-     * @return int
-     */
-    private function getForksCount(string $username, string $repositoryName): int
-    {
-        return count($this->github->api('repo')
-            ->forks()
-            ->all($username, $repositoryName));
     }
 }

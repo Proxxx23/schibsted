@@ -32,8 +32,8 @@ final class StatisticsCounter
         RepositoryDetailsDTO $secondRepo
     ): BasicComparison
     {
-        $firstRepoNumberOfStars = $firstRepo->getStarsNumber();
-        $secondRepoNumberOfStars = $secondRepo->getStarsNumber();
+        $firstRepoNumberOfStars = $firstRepo->getStarsCount();
+        $secondRepoNumberOfStars = $secondRepo->getStarsCount();
 
         /** @var NumberComparison $difference */
         $difference = $this->compareNumbers($firstRepoNumberOfStars, $secondRepoNumberOfStars);
@@ -62,8 +62,8 @@ final class StatisticsCounter
         RepositoryDetailsDTO $secondRepo
     ): BasicComparison
     {
-        $firstRepoForksCount = $firstRepo->getForksNumber();
-        $secondRepoForksCount = $secondRepo->getForksNumber();
+        $firstRepoForksCount = $firstRepo->getForksCount();
+        $secondRepoForksCount = $secondRepo->getForksCount();
 
         /** @var NumberComparison $difference */
         $difference = $this->compareNumbers($firstRepoForksCount, $secondRepoForksCount);
@@ -92,8 +92,8 @@ final class StatisticsCounter
         RepositoryDetailsDTO $secondRepo
     ): BasicComparison
     {
-        $firstRepoWatchersCount = $firstRepo->getWatchersNumber();
-        $secondRepoWatchersCount = $secondRepo->getWatchersNumber();
+        $firstRepoWatchersCount = $firstRepo->getWatchersCount();
+        $secondRepoWatchersCount = $secondRepo->getWatchersCount();
 
         /** @var NumberComparison $difference */
         $difference = $this->compareNumbers($firstRepoWatchersCount, $secondRepoWatchersCount);

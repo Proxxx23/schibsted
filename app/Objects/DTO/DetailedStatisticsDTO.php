@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace App\Objects\SimpleObjects;
+namespace App\Objects\DTO;
 
 /**
- * Class StarsAndDates
- * @package App\Objects\SimpleObjects
+ * Class DetailedStatisticsDTO
+ * @package App\Objects\DTO
  */
-final class StarsAndDates
+final class DetailedStatisticsDTO
 {
 
     /**
@@ -20,9 +20,26 @@ final class StarsAndDates
     private $watchersCount;
 
     /**
+     * @var int $forksCount
+     */
+    private $forksCount;
+
+    /**
      * @var string $updatedAt
      */
     private $updatedAt;
+
+    /**
+     * DetailedStatisticsDTO constructor.
+     * @param array $data
+     */
+    public function __construct(array $data)
+    {
+        $this->starsCount = $data['stargazers_count'];
+        $this->watchersCount = $data['subscribers_count'];
+        $this->forksCount = $data['forks_count'];
+        $this->updatedAt = $data['updated_at'];
+    }
 
     /**
      * @return int
@@ -30,16 +47,6 @@ final class StarsAndDates
     public function getStarsCount(): int
     {
         return $this->starsCount;
-    }
-
-    /**
-     * @param int $starsCount
-     * @return StarsAndDates
-     */
-    public function setStarsCount(int $starsCount): StarsAndDates
-    {
-        $this->starsCount = $starsCount;
-        return $this;
     }
 
     /**
@@ -51,13 +58,11 @@ final class StarsAndDates
     }
 
     /**
-     * @param int $watchersCount
-     * @return StarsAndDates
+     * @return int
      */
-    public function setWatchersCount(int $watchersCount): StarsAndDates
+    public function getForksCount(): int
     {
-        $this->watchersCount = $watchersCount;
-        return $this;
+        return $this->forksCount;
     }
 
     /**
@@ -66,16 +71,6 @@ final class StarsAndDates
     public function getUpdatedAt(): string
     {
         return $this->formatDate($this->updatedAt);
-    }
-
-    /**
-     * @param string $updatedAt
-     * @return StarsAndDates
-     */
-    public function setUpdatedAt(string $updatedAt): StarsAndDates
-    {
-        $this->updatedAt = $updatedAt;
-        return $this;
     }
 
     /**
@@ -89,5 +84,4 @@ final class StarsAndDates
         $dateObject = new \DateTime($date);
         return $dateObject->format($format);
     }
-
 }

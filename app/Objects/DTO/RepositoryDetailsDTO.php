@@ -2,9 +2,6 @@
 
 namespace App\Objects\DTO;
 
-use App\Objects\SimpleObjects\PullsAndForks;
-use App\Objects\SimpleObjects\StarsAndDates;
-
 /**
  * Class RepositoryDetailsDTO
  * @package App\Objects\DTO
@@ -22,19 +19,19 @@ final class RepositoryDetailsDTO implements ResponseInterface
     private $repositoryName;
 
     /**
-     * @var int $forksNumber
+     * @var int $forksCount
      */
-    private $forksNumber;
+    private $forksCount;
 
     /**
-     * @var int $starsNumber
+     * @var int $starsCount
      */
-    private $starsNumber;
+    private $starsCount;
 
     /**
-     * @var int $watchersNumber
+     * @var int $watchersCount
      */
-    private $watchersNumber;
+    private $watchersCount;
 
     /**
      * @var string $latestReleaseDate
@@ -53,25 +50,25 @@ final class RepositoryDetailsDTO implements ResponseInterface
 
     /**
      * RepositoryDetailsDTO constructor.
-     * @param StarsAndDates $starsAndDates
-     * @param PullsAndForks $pullsAndForks
      * @param string $username
      * @param string $repositoryName
+     * @param DetailedStatisticsDTO $detailedStatisticsDTO
+     * @param PullStatisticsDTO $pullStatisticsDTO
      */
     public function __construct(
-        StarsAndDates $starsAndDates,
-        PullsAndForks $pullsAndForks,
         string $username,
-        string $repositoryName
+        string $repositoryName,
+        DetailedStatisticsDTO $detailedStatisticsDTO,
+        PullStatisticsDTO $pullStatisticsDTO
     ) {
         $this->username = $username;
         $this->repositoryName = $repositoryName;
-        $this->forksNumber = $pullsAndForks->getForks();
-        $this->openPullRequestsNumber = $pullsAndForks->getOpenPullRequests();
-        $this->closedPullRequestsNumber = $pullsAndForks->getClosedPullRequests();
-        $this->starsNumber = $starsAndDates->getStarsCount();
-        $this->watchersNumber = $starsAndDates->getWatchersCount();
-        $this->latestReleaseDate = $starsAndDates->getUpdatedAt();
+        $this->forksCount = $detailedStatisticsDTO->getForksCount();
+        $this->starsCount = $detailedStatisticsDTO->getStarsCount();
+        $this->watchersCount = $detailedStatisticsDTO->getWatchersCount();
+        $this->openPullRequestsNumber = $pullStatisticsDTO->getOpenPullRequests();
+        $this->closedPullRequestsNumber = $pullStatisticsDTO->getClosedPullRequests();
+        $this->latestReleaseDate = $detailedStatisticsDTO->getUpdatedAt();
     }
 
     /**
@@ -93,25 +90,25 @@ final class RepositoryDetailsDTO implements ResponseInterface
     /**
      * @return int
      */
-    public function getForksNumber(): int
+    public function getForksCount(): int
     {
-        return $this->forksNumber;
+        return $this->forksCount;
     }
 
     /**
      * @return int
      */
-    public function getStarsNumber(): int
+    public function getStarsCount(): int
     {
-        return $this->starsNumber;
+        return $this->starsCount;
     }
 
     /**
      * @return int
      */
-    public function getWatchersNumber(): int
+    public function getWatchersCount(): int
     {
-        return $this->watchersNumber;
+        return $this->watchersCount;
     }
 
     /**
@@ -146,12 +143,12 @@ final class RepositoryDetailsDTO implements ResponseInterface
         return [
             'username' => $this->username,
             'repositoryName' => $this->repositoryName,
-            'forksNumber' => $this->forksNumber,
-            'starsNumber' => $this->starsNumber,
-            'watchersNumber' => $this->watchersNumber,
-            'latestReleaseDate' => $this->latestReleaseDate,
+            'forksNumber' => $this->forksCount,
+            'starsNumber' => $this->starsCount,
+            'watchersNumber' => $this->watchersCount,
             'openPullRequestsNumber' => $this->openPullRequestsNumber,
             'closedPullRequestsNumber' => $this->closedPullRequestsNumber,
+            'latestReleaseDate' => $this->latestReleaseDate,
         ];
     }
 

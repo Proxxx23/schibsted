@@ -21,26 +21,27 @@ use App\Objects\SimpleObjects\WatchersComparison;
 final class StatisticsCounter
 {
     /**
+     * Compares stars number between two repositories
+     *
      * @param RepositoryDetailsDTO $firstRepo
      * @param RepositoryDetailsDTO $secondRepo
      * @return BasicComparison
      */
-    public function compareStarsCount
-    (
+    public function compareStarsNumber(
         RepositoryDetailsDTO $firstRepo,
         RepositoryDetailsDTO $secondRepo
     ): BasicComparison
     {
-        $firstRepoNumberOfStars = $firstRepo->getStarsCount();
-        $secondRepoNumberOfStars = $secondRepo->getStarsCount();
+        $firstRepoNumberOfStars = $firstRepo->getStarsNumber();
+        $secondRepoNumberOfStars = $secondRepo->getStarsNumber();
 
         /** @var NumberComparison $difference */
         $difference = $this->compareNumbers($firstRepoNumberOfStars, $secondRepoNumberOfStars);
 
         $repoName = ApiConst::EQUAL_STARS_NUMBER;
-        if ($difference->getRepoNumber() === 1) {
+        if (1 === $difference->getRepoNumber()) {
             $repoName = $firstRepo->getRepositoryName();
-        } elseif ($difference->getRepoNumber() === 2) {
+        } elseif (2 === $difference->getRepoNumber()) {
             $repoName = $secondRepo->getRepositoryName();
         }
 
@@ -50,25 +51,27 @@ final class StatisticsCounter
     }
 
     /**
+     * Compares forks number between two repositories
+     *
      * @param RepositoryDetailsDTO $firstRepo
      * @param RepositoryDetailsDTO $secondRepo
      * @return BasicComparison
      */
-    public function compareForksCount(
+    public function compareForksNumber(
         RepositoryDetailsDTO $firstRepo,
         RepositoryDetailsDTO $secondRepo
     ): BasicComparison
     {
-        $firstRepoForksCount = $firstRepo->getForksCount();
-        $secondRepoForksCount = $secondRepo->getForksCount();
+        $firstRepoForksCount = $firstRepo->getForksNumber();
+        $secondRepoForksCount = $secondRepo->getForksNumber();
 
         /** @var NumberComparison $difference */
         $difference = $this->compareNumbers($firstRepoForksCount, $secondRepoForksCount);
 
         $repoName = ApiConst::EQUAL_FORKS_NUMBER;
-        if ($difference->getRepoNumber() === 1) {
+        if (1 === $difference->getRepoNumber()) {
             $repoName = $firstRepo->getRepositoryName();
-        } elseif ($difference->getRepoNumber() === 2) {
+        } elseif (2 === $difference->getRepoNumber()) {
             $repoName = $secondRepo->getRepositoryName();
         }
 
@@ -78,25 +81,27 @@ final class StatisticsCounter
     }
 
     /**
+     * Compares watchers number between two repositories
+     *
      * @param RepositoryDetailsDTO $firstRepo
      * @param RepositoryDetailsDTO $secondRepo
      * @return BasicComparison
      */
-    public function compareWatchersCount(
+    public function compareWatchersNumber(
         RepositoryDetailsDTO $firstRepo,
         RepositoryDetailsDTO $secondRepo
     ): BasicComparison
     {
-        $firstRepoWatchersCount = $firstRepo->getWatchersCount();
-        $secondRepoWatchersCount = $secondRepo->getWatchersCount();
+        $firstRepoWatchersCount = $firstRepo->getWatchersNumber();
+        $secondRepoWatchersCount = $secondRepo->getWatchersNumber();
 
         /** @var NumberComparison $difference */
         $difference = $this->compareNumbers($firstRepoWatchersCount, $secondRepoWatchersCount);
 
         $repoName = ApiConst::EQUAL_WATCHERS_NUMBER;
-        if ($difference->getRepoNumber() === 1) {
+        if (1 === $difference->getRepoNumber()) {
             $repoName = $firstRepo->getRepositoryName();
-        } elseif ($difference->getRepoNumber() === 2) {
+        } elseif (2 === $difference->getRepoNumber()) {
             $repoName = $secondRepo->getRepositoryName();
         }
 
@@ -106,25 +111,27 @@ final class StatisticsCounter
     }
 
     /**
+     * Compare open pull requests between two repositories
+     *
      * @param RepositoryDetailsDTO $firstRepo
      * @param RepositoryDetailsDTO $secondRepo
      * @return BasicComparison
      */
-    public function compareOpenPullRequests(
+    public function compareOpenPullRequestsNumber(
         RepositoryDetailsDTO $firstRepo,
         RepositoryDetailsDTO $secondRepo
     ): BasicComparison
     {
-        $firstRepoWatchersCount = $firstRepo->getWatchersCount();
-        $secondRepoWatchersCount = $secondRepo->getWatchersCount();
+        $firstRepoWatchersCount = $firstRepo->getWatchersNumber();
+        $secondRepoWatchersCount = $secondRepo->getWatchersNumber();
 
         /** @var NumberComparison $difference */
         $difference = $this->compareNumbers($firstRepoWatchersCount, $secondRepoWatchersCount);
 
         $repoName = ApiConst::EQUAL_OPEN_PULL_REQUESTS_NUMBER;
-        if ($difference->getRepoNumber() === 1) {
+        if (1 === $difference->getRepoNumber()) {
             $repoName = $firstRepo->getRepositoryName();
-        } elseif ($difference->getRepoNumber() === 2) {
+        } elseif (2 === $difference->getRepoNumber()) {
             $repoName = $secondRepo->getRepositoryName();
         }
 
@@ -134,25 +141,27 @@ final class StatisticsCounter
     }
 
     /**
+     * Compare closed pull requests number between two repositories
+     *
      * @param RepositoryDetailsDTOCollection $firstRepo
      * @param RepositoryDetailsDTOCollection $secondRepo
      * @return BasicComparison
      */
-    public function compareClosedPullRequests(
+    public function compareClosedPullRequestsNumber(
         RepositoryDetailsDTO $firstRepo,
         RepositoryDetailsDTO $secondRepo
     ): BasicComparison
     {
-        $firstRepoWatchersCount = $firstRepo->getWatchersCount();
-        $secondRepoWatchersCount = $secondRepo->getWatchersCount();
+        $firstRepoWatchersCount = $firstRepo->getWatchersNumber();
+        $secondRepoWatchersCount = $secondRepo->getWatchersNumber();
 
         /** @var NumberComparison $difference */
         $difference = $this->compareNumbers($firstRepoWatchersCount, $secondRepoWatchersCount);
 
         $repoName = ApiConst::EQUAL_CLOSED_PULL_REQUESTS_NUMBER;
-        if ($difference->getRepoNumber() === 1) {
+        if (1 === $difference->getRepoNumber()) {
             $repoName = $firstRepo->getRepositoryName();
-        } elseif ($difference->getRepoNumber() === 2) {
+        } elseif (2 === $difference->getRepoNumber()) {
             $repoName = $secondRepo->getRepositoryName();
         }
 
@@ -162,6 +171,8 @@ final class StatisticsCounter
     }
 
     /**
+     * Compare dates and points on repository with "fresher" last update date
+     *
      * @param RepositoryDetailsDTO $firstRepo
      * @param RepositoryDetailsDTO $secondRepo
      * @return DatesComparison
@@ -199,14 +210,13 @@ final class StatisticsCounter
     }
 
     /**
-     * Counts differences between two integers and points a repository which bigger number
+     * Counts difference between two integers and points on repository with bigger number
      *
      * @param int $firstNumber
      * @param int $secondNumber
      * @return NumberComparison
      */
-    private function compareNumbers
-    (
+    private function compareNumbers(
         int $firstNumber,
         int $secondNumber
     ): NumberComparison
@@ -214,12 +224,12 @@ final class StatisticsCounter
         $whichHasMore = $firstNumber <=> $secondNumber;
         $repoNumber = 0;
         $difference = 0;
-        if ($whichHasMore === 1) {
+        if (1 === $whichHasMore) {
             $repoNumber = 1;
-            $difference = ($secondNumber - $firstNumber);
-        } elseif ($whichHasMore === -1) {
-            $repoNumber = 2;
             $difference = ($firstNumber - $secondNumber);
+        } elseif (-1 === $whichHasMore) {
+            $repoNumber = 2;
+            $difference = ($secondNumber - firstNumber);
         }
 
         return (new NumberComparison())

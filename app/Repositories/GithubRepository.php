@@ -3,10 +3,6 @@
 namespace App\Repositories;
 
 use App\Objects\Commands\DetailedStatisticsQuery;
-use App\Objects\DTO\RepositoryDetailsDTO;
-use App\Objects\DTO\UserRepositoryDTO;
-use App\Objects\DTO\UserRepositoryDTOCollection;
-use App\Objects\SimpleObjects\PullRequests;
 use App\Objects\SimpleObjects\PullsAndForks;
 use App\Objects\SimpleObjects\StarsAndDates;
 
@@ -16,7 +12,6 @@ use App\Objects\SimpleObjects\StarsAndDates;
  */
 final class GithubRepository
 {
-
     /** @var \Github\Client $github */
     private $github;
 
@@ -29,12 +24,12 @@ final class GithubRepository
     }
 
     /**
-     * Pobiera liczbę gwiazdek, liczbę watcherów i datę ostatniej aktualizacji repo
+     * Completes data about stars number, watchers number and repository last update date
      *
      * @param DetailedStatisticsQuery $repositoryDetailedStatisticsCommand
      * @return StarsAndDates
      */
-    public function getStarsAndWatchersStatistics(
+    public function getStarsWatchersAndDateStatistics(
         DetailedStatisticsQuery $repositoryDetailedStatisticsCommand
     ): StarsAndDates
     {
@@ -42,9 +37,6 @@ final class GithubRepository
         $repositoryName = $repositoryDetailedStatisticsCommand->getRepositoryName();
 
         $details = $this->github->api('repos')->show($username, $repositoryName);
-        if (empty($details)) {
-            //TODO: Jak to obsługiwać wyżej?
-        }
 
         return (new StarsAndDates())
             ->setStarsCount($details['stargazers_count'])
@@ -53,7 +45,7 @@ final class GithubRepository
     }
 
     /**
-     * Pobiera daneo pullach (open/closed) i forksach
+     * Completes data about pull and forks number
      *
      * @param DetailedStatisticsQuery $repositoryDetailedStatisticsCommand
      * @return PullsAndForks
@@ -76,6 +68,8 @@ final class GithubRepository
     }
 
     /**
+     * Returns open pull requests number
+     *
      * @param string $username
      * @param string $repositoryName
      * @return int
@@ -89,6 +83,8 @@ final class GithubRepository
     }
 
     /**
+     * Returns closed pull requests number
+     *
      * @param string $username
      * @param string $repositoryName
      * @return int
@@ -102,6 +98,8 @@ final class GithubRepository
     }
 
     /**
+     * Returns forks number
+     *
      * @param string $username
      * @param string $repositoryName
      * @return int

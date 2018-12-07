@@ -16,12 +16,12 @@ use Illuminate\Http\Response;
  */
 final class StatisticsController extends Controller
 {
-
     /**
+     * Returns details about given repository
+     *
      * @param string $username
      * @param string $repository
      * @return Response
-     * @throws \App\Exceptions\InvalidCollectionTypeException
      */
     public function repositoryDetails(string $username, string $repository): Response
     {
@@ -29,7 +29,7 @@ final class StatisticsController extends Controller
             ->setUsername($username)
             ->setRepositoryName($repository);
 
-        $repositoryService = new GithubService(new GithubRepository());
+        $repositoryService = new GithubService(new GithubRepository(), new StatisticsCounter());
 
         return $this->prepareResponse(
             $repositoryService->getRepositoryDetailedStatistics($detailedStatisticsCommand)
@@ -37,12 +37,14 @@ final class StatisticsController extends Controller
     }
 
     /**
+     * Returns compared data of two repositories
+     *
      * @param string $firstSet
      * @param string $secondSet
      * @return Response
      * @throws \App\Exceptions\InvalidCollectionTypeException
      */
-    public function compareRepositories(string $firstSet, string $secondSet)
+    public function compareRepositories(string $firstSet, string $secondSet): Response
     {
         $firstRepository = explode(':', $firstSet);
         $secondRepository = explode(':', $secondSet);
@@ -51,10 +53,8 @@ final class StatisticsController extends Controller
             return new Response(ApiConst::PROVIDE_WITH_COLON, 400);
         }
 
-        $firstUsername = $firstRepository[0];
-        $firstRepositoryName = $firstRepository[1];
-        $secondUsername = $secondRepository[0];
-        $secondRepositoryName = $secondRepository[1];
+        [$firstUsername, $firstRepositoryName] = $firstRepository;
+        [$secondUsername, $secondRepositoryName] = $secondRepository;
 
         $firstRepoStatisticsQuery = (new DetailedStatisticsQuery())
             ->setUsername($firstUsername)

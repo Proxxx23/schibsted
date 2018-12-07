@@ -2,18 +2,12 @@
 
 namespace App\Services;
 
-use App\ApiConst;
 use App\Objects\Commands\DetailedStatisticsQuery;
 use App\Objects\Commands\DetailedStatisticsQueryCollection;
 use App\Objects\DTO\RepositoryComparisonDTO;
 use App\Objects\DTO\RepositoryDetailsDTO;
 use App\Objects\DTO\RepositoryDetailsDTOCollection;
 use App\Objects\DTO\UserRepositoryDTOCollection;
-use App\Objects\SimpleObjects\BasicComparison;
-use App\Objects\SimpleObjects\ForksComparison;
-use App\Objects\SimpleObjects\NumberComparison;
-use App\Objects\SimpleObjects\StarsComparison;
-use App\Objects\SimpleObjects\WatchersComparison;
 use App\Repositories\GithubRepository;
 
 /**
@@ -35,6 +29,7 @@ final class GithubService
     /**
      * GithubService constructor.
      * @param GithubRepository $githubRepository
+     * @param StatisticsCounter $statisticsCounter
      */
     public function __construct(
         GithubRepository $githubRepository,
@@ -46,7 +41,7 @@ final class GithubService
     }
 
     /**
-     * Pobiera listę repozytoriów użytkownika
+     * Returns user repositories list
      *
      * @param string $gitHubUser
      * @return UserRepositoryDTOCollection
@@ -57,11 +52,10 @@ final class GithubService
     }
 
     /**
-     * Zwraca dane dotyczące konkretnego repozytorium użytkownika
+     * Returns given repository detailed statistics
      *
      * @param DetailedStatisticsQuery $detailedStatisticsCommand
      * @return RepositoryDetailsDTO
-     * @throws \App\Exceptions\InvalidCollectionTypeException
      */
     public function getRepositoryDetailedStatistics
     (
@@ -69,7 +63,7 @@ final class GithubService
     ): RepositoryDetailsDTO
     {
         $watchersStarsDates = $this->repository
-            ->getStarsAndWatchersStatistics($detailedStatisticsCommand);
+            ->getStarsWatchersAndDateStatistics($detailedStatisticsCommand);
         $pullsAndForks = $this->repository
             ->getPullsAndForksStatistics($detailedStatisticsCommand);
 
@@ -85,16 +79,15 @@ final class GithubService
     }
 
     /**
-     * Zwraca dane porównawcze dwóch repozytoriów
+     * Returns data about two repositories along with their comparison details
      *
      * @param DetailedStatisticsQueryCollection $detailedStatisticsQueryCollection
-     * @return RepositoryComparisonDTO
+     * @return RepositoryDetailsDTOCollection
      * @throws \App\Exceptions\InvalidCollectionTypeException
      */
-    public function getRepositoriesComparedStatistics
-    (
+    public function getRepositoriesComparedStatistics(
         DetailedStatisticsQueryCollection $detailedStatisticsQueryCollection
-    ): RepositoryComparisonDTO
+    ): RepositoryDetailsDTOCollection
     {
         $repositoryDetailsDTOCollection = new RepositoryDetailsDTOCollection();
         foreach($detailedStatisticsQueryCollection->getCollectionElements() as $repoData) {
@@ -111,22 +104,23 @@ final class GithubService
     }
 
     /**
+     * Completes comparison data
+     *
      * @param RepositoryDetailsDTOCollection $repositoryDetailsDTOCollection
      * @return RepositoryComparisonDTO
+     * @throws \Exception
      */
-    private function completeComparisonData
-    (
+    private function completeComparisonData(
         RepositoryDetailsDTOCollection $repositoryDetailsDTOCollection
     ): RepositoryComparisonDTO
     {
-        $firstRepo = $repositoryDetailsDTOCollection->getCollectionElements()[0];
-        $secondRepo = $repositoryDetailsDTOCollection->getCollectionElements()[1];
+        [$firstRepo, $secondRepo] = $repositoryDetailsDTOCollection->getCollectionElements();
 
-        $starsCompared = $this->statistics->compareStarsCount($firstRepo, $secondRepo);
-        $forksCompared = $this->statistics->compareForksCount($firstRepo, $secondRepo);
-        $openPullRequestsCompared = $this->statistics->compareOpenPullRequests($firstRepo, $secondRepo);
-        $closedPullRequestsCompared = $this->statistics->compareClosedPullRequests($firstRepo, $secondRepo);
-        $watchersCompared = $this->statistics->compareWatchersCount($firstRepo, $secondRepo);
+        $starsCompared = $this->statistics->compareStarsNumber($firstRepo, $secondRepo);
+        $forksCompared = $this->statistics->compareForksNumber($firstRepo, $secondRepo);
+        $openPullRequestsCompared = $this->statistics->compareOpenPullRequestsNumber($firstRepo, $secondRepo);
+        $closedPullRequestsCompared = $this->statistics->compareClosedPullRequestsNumber($firstRepo, $secondRepo);
+        $watchersCompared = $this->statistics->compareWatchersNumber($firstRepo, $secondRepo);
         $datesCompared = $this->statistics->compareLatestReleaseDates($firstRepo, $secondRepo);
 
         return new RepositoryComparisonDTO(

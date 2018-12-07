@@ -101,9 +101,9 @@ class CommonCollection implements ResponseInterface
     /**
      * Zwraca elementy kolekcji jako JSON
      *
-     * @return string|null
+     * @return string
      */
-    public function toJson(): ?string
+    public function toJson(): string
     {
         if (empty($this->toArray())) {
             return null;

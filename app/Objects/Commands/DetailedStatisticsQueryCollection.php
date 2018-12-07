@@ -69,8 +69,6 @@ class DetailedStatisticsQueryCollection extends CommonCollection
                return false;
            }
         }
-
         return true;
-
     }
 }

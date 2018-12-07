@@ -23,19 +23,19 @@ final class RepositoryDetailsDTO implements ResponseInterface
     private $repositoryName;
 
     /**
-     * @var int $forksCount
+     * @var int $forksNumber
      */
-    private $forksCount;
+    private $forksNumber;
 
     /**
-     * @var int $starsCount
+     * @var int $starsNumber
      */
-    private $starsCount;
+    private $starsNumber;
 
     /**
-     * @var int $watchersCount
+     * @var int $watchersNumber
      */
-    private $watchersCount;
+    private $watchersNumber;
 
     /**
      * @var string $latestReleaseDate
@@ -43,16 +43,22 @@ final class RepositoryDetailsDTO implements ResponseInterface
     private $latestReleaseDate;
 
     /**
-     * @var int $openPullRequestsCount
+     * @var int $openPullRequestsNumber
      */
-    private $openPullRequestsCount;
+    private $openPullRequestsNumber;
 
     /**
-     * @var int $closedPullRequestsCount
+     * @var int $closedPullRequestsNumber
      */
-    private $closedPullRequestsCount;
+    private $closedPullRequestsNumber;
 
-
+    /**
+     * RepositoryDetailsDTO constructor.
+     * @param StarsAndDates $starsAndDates
+     * @param PullsAndForks $pullsAndForks
+     * @param string $username
+     * @param string $repositoryName
+     */
     public function __construct(
         StarsAndDates $starsAndDates,
         PullsAndForks $pullsAndForks,
@@ -62,11 +68,11 @@ final class RepositoryDetailsDTO implements ResponseInterface
     {
         $this->username = $username;
         $this->repositoryName = $repositoryName;
-        $this->forksCount = $pullsAndForks->getForks();
-        $this->openPullRequestsCount = $pullsAndForks->getOpenPullRequests();
-        $this->closedPullRequestsCount = $pullsAndForks->getClosedPullRequests();
-        $this->starsCount = $starsAndDates->getStarsCount();
-        $this->watchersCount = $starsAndDates->getWatchersCount();
+        $this->forksNumber = $pullsAndForks->getForks();
+        $this->openPullRequestsNumber = $pullsAndForks->getOpenPullRequests();
+        $this->closedPullRequestsNumber = $pullsAndForks->getClosedPullRequests();
+        $this->starsNumber = $starsAndDates->getStarsCount();
+        $this->watchersNumber = $starsAndDates->getWatchersCount();
         $this->latestReleaseDate = $starsAndDates->getUpdatedAt();
     }
 
@@ -89,25 +95,25 @@ final class RepositoryDetailsDTO implements ResponseInterface
     /**
      * @return int
      */
-    public function getForksCount(): int
+    public function getForksNumber(): int
     {
-        return $this->forksCount;
+        return $this->forksNumber;
     }
 
     /**
      * @return int
      */
-    public function getStarsCount(): int
+    public function getStarsNumber(): int
     {
-        return $this->starsCount;
+        return $this->starsNumber;
     }
 
     /**
      * @return int
      */
-    public function getWatchersCount(): int
+    public function getWatchersNumber(): int
     {
-        return $this->watchersCount;
+        return $this->watchersNumber;
     }
 
     /**
@@ -121,17 +127,17 @@ final class RepositoryDetailsDTO implements ResponseInterface
     /**
      * @return int
      */
-    public function getOpenPullRequestsCount(): int
+    public function getOpenPullRequestsNumber(): int
     {
-        return $this->openPullRequestsCount;
+        return $this->openPullRequestsNumber;
     }
 
     /**
      * @return int
      */
-    public function getClosedPullRequestsCount(): int
+    public function getClosedPullRequestsNumber(): int
     {
-        return $this->closedPullRequestsCount;
+        return $this->closedPullRequestsNumber;
     }
 
     /**
@@ -142,21 +148,20 @@ final class RepositoryDetailsDTO implements ResponseInterface
         return [
             'username' => $this->username,
             'repositoryName' => $this->repositoryName,
-            'forksCount' => $this->forksCount,
-            'starsCount' => $this->starsCount,
-            'watchersCount' => $this->watchersCount,
+            'forksNumber' => $this->forksNumber,
+            'starsNumber' => $this->starsNumber,
+            'watchersNumber' => $this->watchersNumber,
             'latestReleaseDate' => $this->latestReleaseDate,
-            'openPullRequestsCount' => $this->openPullRequestsCount,
-            'closedPullRequestsCount' => $this->closedPullRequestsCount,
+            'openPullRequestsNumber' => $this->openPullRequestsNumber,
+            'closedPullRequestsNumber' => $this->closedPullRequestsNumber,
         ];
     }
 
     /**
-     * @return string|null
+     * @return string
      */
-    public function toJson(): ?string
+    public function toJson(): string
     {
         return json_encode($this->toArray());
     }
-
 }

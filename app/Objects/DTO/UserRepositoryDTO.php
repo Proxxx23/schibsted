@@ -125,8 +125,8 @@ final class UserRepositoryDTO implements ResponseInterface
             'description' => $this->description,
             'watchersCount' => $this->watchersCount,
             'starsCount' => $this->starsCount,
-            'createdAt' => $this->createdAt,
-            'updatedAt' => $this->updatedAt,
+            'createdAt' => $this->formatDate($this->createdAt),
+            'updatedAt' => $this->formatDate($this->updatedAt),
         ];
     }
 
@@ -136,5 +136,18 @@ final class UserRepositoryDTO implements ResponseInterface
     public function toJson(): string
     {
         return json_encode($this->toArray(), JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+    }
+
+    /**
+     * Formats date
+     *
+     * @param string $date
+     * @return string
+     * @throws \Exception
+     */
+    private function formatDate(string $date): string
+    {
+        $dateObj = new \DateTime($date);
+        return $dateObj->format('Y-m-d H:i:s');
     }
 }

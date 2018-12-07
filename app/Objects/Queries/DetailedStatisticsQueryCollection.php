@@ -1,14 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace App\Objects\Commands;
+namespace App\Objects\Queries;
 
-use App\ApiConst;
 use App\Exceptions\InvalidCollectionTypeException;
 use App\Objects\Common\CommonCollection;
 
 /**
  * Class DetailedStatisticsQueryCollection
- * @package App\Objects\Commands
+ * @package App\Objects\Queries
  */
 class DetailedStatisticsQueryCollection extends CommonCollection
 {
@@ -26,20 +25,22 @@ class DetailedStatisticsQueryCollection extends CommonCollection
      * @param $element
      * @throws InvalidCollectionTypeException
      */
-    public function addCollectionElement($element): void
+    public function addCollectionElement($element): CommonCollection
     {
         if (!$element instanceof self::$collectionType) {
             throw new InvalidCollectionTypeException();
         }
 
         parent::addCollectionElement($element);
+
+        return $this;
     }
 
     /**
-     * @param $element
+     * @param mixed ...$elements
      * @throws InvalidCollectionTypeException
      */
-    public function addCollectionElements(...$elements): void
+    public function addCollectionElements(...$elements): CommonCollection
     {
         foreach ($elements as $element) {
             if (!$element instanceof self::$collectionType) {
@@ -48,6 +49,8 @@ class DetailedStatisticsQueryCollection extends CommonCollection
         }
 
         parent::addCollectionElements($elements);
+
+        return $this;
     }
 
     /**
@@ -56,19 +59,5 @@ class DetailedStatisticsQueryCollection extends CommonCollection
     public function getValidationMessage(): ?string
     {
         return $this->validationMessage;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isValid(): bool
-    {
-        foreach ($this->getCollectionElements() as $element) {
-           if (empty($element)) {
-               $this->validationMessage = ApiConst::EMPTY_USERNAME_OR_REPOSITORY_LINK;
-               return false;
-           }
-        }
-        return true;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Objects\Common\ProblemResponse;
 use App\Objects\DTO\ResponseInterface;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Response;
@@ -18,7 +19,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     /**
-     * @param $result
+     * @param ResponseInterface $result
      * @return Response
      */
     protected function prepareResponse(ResponseInterface $result): Response
@@ -28,5 +29,14 @@ class Controller extends BaseController
         }
 
         return new Response($result->toJson(), Response::HTTP_OK);
+    }
+
+    /**
+     * @param ProblemResponse $problemResponse
+     * @return Response
+     */
+    protected function problemResponse(ProblemResponse $problemResponse): Response
+    {
+        return new Response($problemResponse->getHttpCode(), $problemResponse->getMessage());
     }
 }

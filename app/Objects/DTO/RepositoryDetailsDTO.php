@@ -11,7 +11,6 @@ use App\Objects\SimpleObjects\StarsAndDates;
  */
 final class RepositoryDetailsDTO implements ResponseInterface
 {
-
     /**
      * @var string $username
      */

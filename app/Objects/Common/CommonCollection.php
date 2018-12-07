@@ -21,21 +21,24 @@ class CommonCollection implements ResponseInterface
     private $elements = [];
 
     /**
-     * Dodaje element do kolekcji
+     * Adds element to collection
      *
-     * @param object $element
+     * @param $element
+     * @return CommonCollection
      */
-    public function addCollectionElement($element): void
+    public function addCollectionElement($element): CommonCollection
     {
         $this->elements[] = $element;
+        return $this;
     }
 
     /**
-     * Dodaje kilka elementów do kolekcji
+     * Adds more than one element to collection
      *
-     * @param object ...$elements
+     * @param mixed ...$elements
+     * @return CommonCollection
      */
-    public function addCollectionElements(...$elements): void
+    public function addCollectionElements(...$elements): CommonCollection
     {
         $elements = reset($elements);
         $elementsCount = count($elements);
@@ -43,10 +46,12 @@ class CommonCollection implements ResponseInterface
         for ($i = 0; $i < $elementsCount; $i++) {
             $this->elements[] = $elements[$i];
         }
+
+        return $this;
     }
 
     /**
-     * Usuwa element z kolekcji
+     * Delete element from collection
      *
      * @param $index
      */
@@ -56,7 +61,7 @@ class CommonCollection implements ResponseInterface
     }
 
     /**
-     * Zlicza elementy kolekcji
+     * Counts collection elements
      *
      * @return int
      */
@@ -66,6 +71,8 @@ class CommonCollection implements ResponseInterface
     }
 
     /**
+     * Checks if collection is empty
+     *
      * @return bool
      */
     public function isEmpty(): bool
@@ -74,7 +81,7 @@ class CommonCollection implements ResponseInterface
     }
 
     /**
-     * Pobiera elementy kolekcji
+     * Returns collection elements as objects
      *
      * @return array
      */
@@ -84,7 +91,7 @@ class CommonCollection implements ResponseInterface
     }
 
     /**
-     * Zwraca tablicę z elementami kolekcji
+     * Returns collection elements as an array
      *
      * @return array
      */
@@ -99,21 +106,17 @@ class CommonCollection implements ResponseInterface
     }
 
     /**
-     * Zwraca elementy kolekcji jako JSON
+     * Returns collection elements as JSON
      *
      * @return string
      */
     public function toJson(): string
     {
-        if (empty($this->toArray())) {
-            return null;
-        }
-
         return json_encode($this->toArray(), JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 
     /**
-     * Walidator
+     * Simple validation
      *
      * @return bool
      */

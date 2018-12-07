@@ -2,7 +2,10 @@
 
 namespace App\Repositories;
 
-use App\Objects\Commands\DetailedStatisticsQuery;
+use App\Objects\DTO\UserDetailsDTO;
+use App\Objects\DTO\UserRepositoryDTO;
+use App\Objects\DTO\UserRepositoryDTOCollection;
+use App\Objects\Queries\DetailedStatisticsQuery;
 use App\Objects\SimpleObjects\PullsAndForks;
 use App\Objects\SimpleObjects\StarsAndDates;
 
@@ -21,6 +24,38 @@ final class GithubRepository
     public function __construct()
     {
         $this->github = new \Github\Client();
+    }
+
+    /**
+     * Returns information about Github user
+     *
+     * @param string $gitHubUser
+     * @return UserDetailsDTO
+     */
+    public function getUserDetails(string $gitHubUser): UserDetailsDTO
+    {
+        $user = $this->github->api('user')->show($gitHubUser);
+        return new UserDetailsDTO($user);
+    }
+
+    /**
+     * Returns user's repositories list
+     *
+     * @param string $gitHubUser
+     * @return UserRepositoryDTOCollection
+     */
+    public function getUserRepositoriesList(string $gitHubUser): UserRepositoryDTOCollection
+    {
+        $repositories = $this->github->api('user')->repositories($gitHubUser);
+
+        $userRepositoryDTOCollection = new UserRepositoryDTOCollection();
+        foreach ($repositories as &$repository) {
+            $userRepositoryDTO = new UserRepositoryDTO($repository);
+            $userRepositoryDTOCollection->addCollectionElement($userRepositoryDTO);
+        }
+        unset($repository);
+
+        return $userRepositoryDTOCollection;
     }
 
     /**

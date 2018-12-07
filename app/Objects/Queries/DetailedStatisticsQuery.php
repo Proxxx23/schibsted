@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace App\Objects\Commands;
+namespace App\Objects\Queries;
 
 /**
  * Class DetailedStatisticsQuery
- * @package App\Objects\Commands
+ * @package App\Objects\Queries
  */
 final class DetailedStatisticsQuery
 {

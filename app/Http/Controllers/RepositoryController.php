@@ -3,19 +3,43 @@
 namespace App\Http\Controllers;
 
 use App\ApiConst;
-use App\Objects\Commands\DetailedStatisticsQuery;
-use App\Objects\Commands\DetailedStatisticsQueryCollection;
+use App\Objects\Common\ProblemResponse;
+use App\Objects\Queries\DetailedStatisticsQuery;
+use App\Objects\Queries\DetailedStatisticsQueryCollection;
 use App\Repositories\GithubRepository;
 use App\Services\GithubService;
 use App\Services\StatisticsCounter;
+use App\ValidationConst;
 use Illuminate\Http\Response;
 
 /**
- * Class StatisticsController
+ * Class RepositoryController
  * @package App\Http\Controllers
  */
-final class StatisticsController extends Controller
+final class RepositoryController extends Controller
 {
+    /**
+     * Lists user public repositories
+     *
+     * @param string $gitHubUser
+     * @return Response
+     */
+    public function listUserRepositories(string $gitHubUser): Response
+    {
+        if (strlen($gitHubUser) <= 1) {
+            return $this->problemResponse(
+                (new ProblemResponse())
+                    ->setHttpCode(400)
+                    ->setMessage(ValidationConst::INVALID_LENGTH)
+            );
+        }
+
+        $service = new GithubService(new GithubRepository(), new StatisticsCounter());
+        return $this->prepareResponse(
+            $service->getUserRepositoriesList($gitHubUser)
+        );
+    }
+
     /**
      * Returns details about given repository
      *
@@ -69,10 +93,6 @@ final class StatisticsController extends Controller
             $firstRepoStatisticsQuery,
             $secondRepoStatisticsQuery
         );
-
-        if (!$statisticsQueryCollection->isValid()) {
-            return new Response($statisticsQueryCollection->getValidationMessage(), 400);
-        }
 
         $repositoryService = new GithubService(new GithubRepository(), new StatisticsCounter());
 

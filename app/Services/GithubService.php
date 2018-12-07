@@ -2,8 +2,9 @@
 
 namespace App\Services;
 
-use App\Objects\Commands\DetailedStatisticsQuery;
-use App\Objects\Commands\DetailedStatisticsQueryCollection;
+use App\Objects\DTO\UserDetailsDTO;
+use App\Objects\Queries\DetailedStatisticsQuery;
+use App\Objects\Queries\DetailedStatisticsQueryCollection;
 use App\Objects\DTO\RepositoryComparisonDTO;
 use App\Objects\DTO\RepositoryDetailsDTO;
 use App\Objects\DTO\RepositoryDetailsDTOCollection;
@@ -41,6 +42,17 @@ final class GithubService
     }
 
     /**
+     * Returns user details
+     *
+     * @param string $gitHubUser
+     * @return UserDetailsDTO
+     */
+    public function getUserDetails(string $gitHubUser): UserDetailsDTO
+    {
+        return $this->repository->getUserDetails($gitHubUser);
+    }
+
+    /**
      * Returns user repositories list
      *
      * @param string $gitHubUser
@@ -48,7 +60,7 @@ final class GithubService
      */
     public function getUserRepositoriesList(string $gitHubUser): UserRepositoryDTOCollection
     {
-        //
+        return $this->repository->getUserRepositoriesList($gitHubUser);
     }
 
     /**
@@ -97,8 +109,6 @@ final class GithubService
 
         $repositoryComparisonDTO = $this->completeComparisonData($repositoryDetailsDTOCollection);
         $repositoryDetailsDTOCollection->setComparisonData($repositoryComparisonDTO);
-
-        dd($repositoryDetailsDTOCollection);
 
         return $repositoryDetailsDTOCollection;
     }

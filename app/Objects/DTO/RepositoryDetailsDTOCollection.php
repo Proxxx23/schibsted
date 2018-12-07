@@ -12,12 +12,15 @@ use App\Objects\Common\CommonCollection;
 class RepositoryDetailsDTOCollection extends CommonCollection
 {
     /**
-     * @var \stdClass $collectionType
+     * @var array $collectionType
      */
-    protected static $collectionType = RepositoryDetailsDTO::class;
+    protected static $collectionTypes = [
+        RepositoryDetailsDTO::class,
+        RepositoryComparisonDTO::class
+    ];
 
     /**
-     * @var RepositoryComparisonDTO;
+     * @var RepositoryComparisonDTO $comparisonData
      */
     private $comparisonData;
 
@@ -28,8 +31,10 @@ class RepositoryDetailsDTOCollection extends CommonCollection
      */
     public function addCollectionElement($element): CommonCollection
     {
-        if (!$element instanceof self::$collectionType) {
-            throw new InvalidCollectionTypeException();
+        foreach (self::$collectionTypes as $collectionType) {
+            if (!$element instanceof $collectionType) {
+                throw new InvalidCollectionTypeException();
+            }
         }
 
         parent::addCollectionElement($element);
@@ -48,12 +53,13 @@ class RepositoryDetailsDTOCollection extends CommonCollection
     /**
      * @param RepositoryComparisonDTO $comparisonData
      * @return RepositoryDetailsDTOCollection
+     * @throws InvalidCollectionTypeException
      */
     public function setComparisonData(
         RepositoryComparisonDTO $comparisonData
     ): RepositoryDetailsDTOCollection
     {
-        $this->comparisonData = $comparisonData;
+        $this->addCollectionElement($comparisonData);
         return $this;
     }
 }

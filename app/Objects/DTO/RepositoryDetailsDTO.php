@@ -63,8 +63,7 @@ final class RepositoryDetailsDTO implements ResponseInterface
         PullsAndForks $pullsAndForks,
         string $username,
         string $repositoryName
-    )
-    {
+    ) {
         $this->username = $username;
         $this->repositoryName = $repositoryName;
         $this->forksNumber = $pullsAndForks->getForks();

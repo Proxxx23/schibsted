@@ -63,8 +63,7 @@ final class RepositoryComparisonDTO
         OpenPullRequestsComparison $openPullRequestsComparison,
         ClosedPullRequestsComparison $closedPullRequestsComparison,
         DatesComparison $datesComparison
-    )
-    {
+    ) {
         $this->starsCountComparison = $starsCountComparison;
         $this->forksCountComparison = $forksCountComparison;
         $this->watchersCountComparison = $watchersCountComparison;
@@ -119,5 +118,28 @@ final class RepositoryComparisonDTO
     public function getDatesComparison(): DatesComparison
     {
         return $this->datesComparison;
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return [
+            'starsCountComparison' => $this->starsCountComparison,
+            'forksCountComparison' => $this->forksCountComparison,
+            'watchersCountComparison' => $this->watchersCountComparison,
+            'openPullRequestsComparison' => $this->openPullRequestsComparison,
+            'closedPullRequestsComparison' => $this->closedPullRequestsComparison,
+            'datesComparison' => $this->datesComparison,
+        ];
+    }
+
+    /**
+     * @return string
+     */
+    public function toJson(): string
+    {
+        return json_encode($this->toArray(), JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 }

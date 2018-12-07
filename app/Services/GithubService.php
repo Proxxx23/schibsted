@@ -35,8 +35,7 @@ final class GithubService
     public function __construct(
         GithubRepository $githubRepository,
         StatisticsCounter $statisticsCounter
-    )
-    {
+    ) {
         $this->repository = $githubRepository;
         $this->statistics = $statisticsCounter;
     }
@@ -69,11 +68,9 @@ final class GithubService
      * @param DetailedStatisticsQuery $detailedStatisticsCommand
      * @return RepositoryDetailsDTO
      */
-    public function getRepositoryDetailedStatistics
-    (
+    public function getRepositoryDetailedStatistics(
         DetailedStatisticsQuery $detailedStatisticsCommand
-    ): RepositoryDetailsDTO
-    {
+    ): RepositoryDetailsDTO {
         $watchersStarsDates = $this->repository
             ->getStarsWatchersAndDateStatistics($detailedStatisticsCommand);
         $pullsAndForks = $this->repository
@@ -99,10 +96,9 @@ final class GithubService
      */
     public function getRepositoriesComparedStatistics(
         DetailedStatisticsQueryCollection $detailedStatisticsQueryCollection
-    ): RepositoryDetailsDTOCollection
-    {
+    ): RepositoryDetailsDTOCollection {
         $repositoryDetailsDTOCollection = new RepositoryDetailsDTOCollection();
-        foreach($detailedStatisticsQueryCollection->getCollectionElements() as $repoData) {
+        foreach ($detailedStatisticsQueryCollection->getCollectionElements() as $repoData) {
             $repositoryDetailsDTO = $this->getRepositoryDetailedStatistics($repoData);
             $repositoryDetailsDTOCollection->addCollectionElement($repositoryDetailsDTO);
         }
@@ -122,8 +118,7 @@ final class GithubService
      */
     private function completeComparisonData(
         RepositoryDetailsDTOCollection $repositoryDetailsDTOCollection
-    ): RepositoryComparisonDTO
-    {
+    ): RepositoryComparisonDTO {
         [$firstRepo, $secondRepo] = $repositoryDetailsDTOCollection->getCollectionElements();
 
         $starsCompared = $this->statistics->compareStarsNumber($firstRepo, $secondRepo);
@@ -142,6 +137,4 @@ final class GithubService
             $datesCompared
         );
     }
-
-
 }

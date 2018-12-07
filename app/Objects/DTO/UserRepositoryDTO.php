@@ -120,13 +120,13 @@ final class UserRepositoryDTO implements ResponseInterface
     public function toArray(): array
     {
         return [
-           'name' => $this->name,
-           'url' => $this->url,
-           'description' => $this->description,
-           'watchersCount' => $this->watchersCount,
-           'starsCount' => $this->starsCount,
-           'createdAt' => $this->createdAt,
-           'updatedAt' => $this->updatedAt,
+            'name' => $this->name,
+            'url' => $this->url,
+            'description' => $this->description,
+            'watchersCount' => $this->watchersCount,
+            'starsCount' => $this->starsCount,
+            'createdAt' => $this->createdAt,
+            'updatedAt' => $this->updatedAt,
         ];
     }
 

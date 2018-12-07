@@ -127,11 +127,11 @@ final class RepositoryComparisonDTO
     {
         return [
             'comparison' => [
-                'starsNumberComparison' => $this->starsNumberComparison->toArray(),
-                'forksNumberComparison' => $this->forksNumberComparison->toArray(),
-                'watchersNumberComparison' => $this->watchersNumberComparison->toArray(),
-                'openPullRequestsNumberComparison' => $this->openPullRequestsNumberComparison->toArray(),
-                'closedPullRequestsNumberComparison' => $this->closedPullRequestsNumberComparison->toArray(),
+                'starsCountComparison' => $this->starsNumberComparison->toArray(),
+                'forksCountComparison' => $this->forksNumberComparison->toArray(),
+                'watchersCountComparison' => $this->watchersNumberComparison->toArray(),
+                'openPullRequestsCountComparison' => $this->openPullRequestsNumberComparison->toArray(),
+                'closedPullRequestsCountComparison' => $this->closedPullRequestsNumberComparison->toArray(),
                 'datesComparison' => $this->datesComparison->toArray(),
             ]
         ];

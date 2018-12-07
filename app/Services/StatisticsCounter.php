@@ -122,8 +122,8 @@ final class StatisticsCounter
         RepositoryDetailsDTO $secondRepo
     ): BasicComparison
     {
-        $firstRepoWatchersCount = $firstRepo->getOpenPullRequestsNumber();
-        $secondRepoWatchersCount = $secondRepo->getOpenPullRequestsNumber();
+        $firstRepoWatchersCount = $firstRepo->getOpenPullRequestsCount();
+        $secondRepoWatchersCount = $secondRepo->getOpenPullRequestsCount();
 
         /** @var NumberComparison $difference */
         $difference = $this->compareNumbers($firstRepoWatchersCount, $secondRepoWatchersCount);
@@ -152,8 +152,8 @@ final class StatisticsCounter
         RepositoryDetailsDTO $secondRepo
     ): BasicComparison
     {
-        $firstRepoWatchersCount = $firstRepo->getClosedPullRequestsNumber();
-        $secondRepoWatchersCount = $secondRepo->getClosedPullRequestsNumber();
+        $firstRepoWatchersCount = $firstRepo->getClosedPullRequestsCount();
+        $secondRepoWatchersCount = $secondRepo->getClosedPullRequestsCount();
 
         /** @var NumberComparison $difference */
         $difference = $this->compareNumbers($firstRepoWatchersCount, $secondRepoWatchersCount);

@@ -34,9 +34,9 @@ final class UserDetailsDTO implements ResponseInterface
     private $location;
 
     /**
-     * @var int $reposNumber
+     * @var int $reposCount
      */
-    private $reposNumber;
+    private $reposCount;
 
     /**
      * @var int $followers
@@ -69,7 +69,7 @@ final class UserDetailsDTO implements ResponseInterface
         $this->name = $data['name'];
         $this->company = $data['company'];
         $this->location = $data['location'];
-        $this->reposNumber = $data['public_repos'];
+        $this->reposCount = $data['public_repos'];
         $this->followers = $data['followers'];
         $this->following = $data['following'];
         $this->userSince = $data['created_at'];
@@ -119,9 +119,9 @@ final class UserDetailsDTO implements ResponseInterface
     /**
      * @return int
      */
-    public function getReposNumber(): int
+    public function getReposCount(): int
     {
-        return $this->reposNumber;
+        return $this->reposCount;
     }
 
     /**
@@ -167,7 +167,7 @@ final class UserDetailsDTO implements ResponseInterface
             'name' => $this->name,
             'company' => $this->company,
             'location' => $this->location,
-            'reposNumber' => $this->reposNumber,
+            'repositoriesCount' => $this->reposCount,
             'followers' => $this->followers,
             'following' => $this->following,
             'userSince' => $this->userSince,

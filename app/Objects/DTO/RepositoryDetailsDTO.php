@@ -39,14 +39,14 @@ final class RepositoryDetailsDTO implements ResponseInterface
     private $latestReleaseDate;
 
     /**
-     * @var int $openPullRequestsNumber
+     * @var int $openPullRequestsCount
      */
-    private $openPullRequestsNumber;
+    private $openPullRequestsCount;
 
     /**
-     * @var int $closedPullRequestsNumber
+     * @var int $closedPullRequestsCount
      */
-    private $closedPullRequestsNumber;
+    private $closedPullRequestsCount;
 
     /**
      * RepositoryDetailsDTO constructor.
@@ -66,8 +66,8 @@ final class RepositoryDetailsDTO implements ResponseInterface
         $this->forksCount = $detailedStatisticsDTO->getForksCount();
         $this->starsCount = $detailedStatisticsDTO->getStarsCount();
         $this->watchersCount = $detailedStatisticsDTO->getWatchersCount();
-        $this->openPullRequestsNumber = $pullStatisticsDTO->getOpenPullRequests();
-        $this->closedPullRequestsNumber = $pullStatisticsDTO->getClosedPullRequests();
+        $this->openPullRequestsCount = $pullStatisticsDTO->getOpenPullRequests();
+        $this->closedPullRequestsCount = $pullStatisticsDTO->getClosedPullRequests();
         $this->latestReleaseDate = $detailedStatisticsDTO->getUpdatedAt();
     }
 
@@ -122,17 +122,17 @@ final class RepositoryDetailsDTO implements ResponseInterface
     /**
      * @return int
      */
-    public function getOpenPullRequestsNumber(): int
+    public function getOpenPullRequestsCount(): int
     {
-        return $this->openPullRequestsNumber;
+        return $this->openPullRequestsCount;
     }
 
     /**
      * @return int
      */
-    public function getClosedPullRequestsNumber(): int
+    public function getClosedPullRequestsCount(): int
     {
-        return $this->closedPullRequestsNumber;
+        return $this->closedPullRequestsCount;
     }
 
     /**
@@ -143,11 +143,11 @@ final class RepositoryDetailsDTO implements ResponseInterface
         return [
             'username' => $this->username,
             'repositoryName' => $this->repositoryName,
-            'forksNumber' => $this->forksCount,
-            'starsNumber' => $this->starsCount,
-            'watchersNumber' => $this->watchersCount,
-            'openPullRequestsNumber' => $this->openPullRequestsNumber,
-            'closedPullRequestsNumber' => $this->closedPullRequestsNumber,
+            'forksCount' => $this->forksCount,
+            'starsCount' => $this->starsCount,
+            'watchersCount' => $this->watchersCount,
+            'openPullRequestsCount' => $this->openPullRequestsCount,
+            'closedPullRequestsCount' => $this->closedPullRequestsCount,
             'latestReleaseDate' => $this->latestReleaseDate,
         ];
     }

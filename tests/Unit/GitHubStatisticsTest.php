@@ -54,7 +54,7 @@ class GitHubStatisticsTest extends TestCase
         self::assertInternalType('string', $userDetails->getName());
         self::assertInternalType('string', $userDetails->getCompany());
         self::assertInternalType('string', $userDetails->getLocation());
-        self::assertInternalType('integer', $userDetails->getReposNumber());
+        self::assertInternalType('integer', $userDetails->getReposCount());
         self::assertInternalType('integer', $userDetails->getFollowers());
         self::assertInternalType('integer', $userDetails->getFollowing());
         self::assertInternalType('string', $userDetails->getUserSince());

@@ -9,7 +9,7 @@ use App\Objects\SimpleObjects\StarsAndDates;
  * Class RepositoryDetailsDTO
  * @package App\Objects\DTO
  */
-final class RepositoryDetailsDTO implements ValidatorInterface
+final class RepositoryDetailsDTO implements ResponseInterface
 {
 
     /**
@@ -159,11 +159,4 @@ final class RepositoryDetailsDTO implements ValidatorInterface
         return json_encode($this->toArray());
     }
 
-    /**
-     * @return bool
-     */
-    public function isValid(): bool
-    {
-        return !(empty($this->toArray()));
-    }
 }

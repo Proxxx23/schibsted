@@ -6,7 +6,7 @@ namespace App\Objects\DTO;
  * Class UserRepositoryDTO
  * @package App\Objects\DTO
  */
-final class UserRepositoryDTO implements ValidatorInterface
+final class UserRepositoryDTO implements ResponseInterface
 {
     /**
      * @var string $name
@@ -112,18 +112,6 @@ final class UserRepositoryDTO implements ValidatorInterface
     public function getUpdatedAt(): string
     {
         return $this->updatedAt;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isValid(): bool
-    {
-        if (empty($this->toArray())) {
-            return false;
-        }
-
-        return true;
     }
 
     /**

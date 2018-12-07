@@ -17,6 +17,11 @@ class RepositoryDetailsDTOCollection extends CommonCollection
     protected static $collectionType = RepositoryDetailsDTO::class;
 
     /**
+     * @var RepositoryComparisonDTO;
+     */
+    private $comparisonData;
+
+    /**
      * @param $element
      * @throws InvalidCollectionTypeException
      */
@@ -27,5 +32,25 @@ class RepositoryDetailsDTOCollection extends CommonCollection
         }
 
         parent::addCollectionElement($element);
+    }
+
+    /**
+     * @return RepositoryComparisonDTO
+     */
+    public function getComparisonData(): RepositoryComparisonDTO
+    {
+        return $this->comparisonData;
+    }
+
+    /**
+     * @param RepositoryComparisonDTO $comparisonData
+     * @return RepositoryDetailsDTOCollection
+     */
+    public function setComparisonData(
+        RepositoryComparisonDTO $comparisonData
+    ): RepositoryDetailsDTOCollection
+    {
+        $this->comparisonData = $comparisonData;
+        return $this;
     }
 }

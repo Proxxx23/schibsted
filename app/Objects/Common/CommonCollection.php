@@ -2,13 +2,13 @@
 
 namespace App\Objects\Common;
 
-use App\Objects\DTO\ValidatorInterface;
+use App\Objects\DTO\ResponseInterface;
 
 /**
  * Class CommonCollection
  * @package App\Objects\Common
  */
-class CommonCollection implements ValidatorInterface
+class CommonCollection implements ResponseInterface
 {
     /**
      * @var $collectionType

@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Objects\Commands\DetailedStatisticsCommand;
+use App\Objects\Commands\DetailedStatisticsQuery;
 use App\Objects\DTO\RepositoryDetailsDTO;
 use App\Objects\DTO\UserRepositoryDTO;
 use App\Objects\DTO\UserRepositoryDTOCollection;
@@ -31,11 +31,11 @@ final class GithubRepository
     /**
      * Pobiera liczbę gwiazdek, liczbę watcherów i datę ostatniej aktualizacji repo
      *
-     * @param DetailedStatisticsCommand $repositoryDetailedStatisticsCommand
+     * @param DetailedStatisticsQuery $repositoryDetailedStatisticsCommand
      * @return StarsAndDates
      */
     public function getStarsAndWatchersStatistics(
-        DetailedStatisticsCommand $repositoryDetailedStatisticsCommand
+        DetailedStatisticsQuery $repositoryDetailedStatisticsCommand
     ): StarsAndDates
     {
         $username = $repositoryDetailedStatisticsCommand->getUsername();
@@ -55,11 +55,11 @@ final class GithubRepository
     /**
      * Pobiera daneo pullach (open/closed) i forksach
      *
-     * @param DetailedStatisticsCommand $repositoryDetailedStatisticsCommand
+     * @param DetailedStatisticsQuery $repositoryDetailedStatisticsCommand
      * @return PullsAndForks
      */
     public function getPullsAndForksStatistics(
-        DetailedStatisticsCommand $repositoryDetailedStatisticsCommand
+        DetailedStatisticsQuery $repositoryDetailedStatisticsCommand
     ): PullsAndForks
     {
         $username = $repositoryDetailedStatisticsCommand->getUsername();

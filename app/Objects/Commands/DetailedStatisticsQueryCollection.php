@@ -7,15 +7,15 @@ use App\Exceptions\InvalidCollectionTypeException;
 use App\Objects\Common\CommonCollection;
 
 /**
- * Class DetailedStatisticsCommandCollection
+ * Class DetailedStatisticsQueryCollection
  * @package App\Objects\Commands
  */
-class DetailedStatisticsCommandCollection extends CommonCollection
+class DetailedStatisticsQueryCollection extends CommonCollection
 {
     /**
      * @var \stdClass $collectionType
      */
-    protected static $collectionType = DetailedStatisticsCommand::class;
+    protected static $collectionType = DetailedStatisticsQuery::class;
 
     /**
      * @var string|null $validationMessage

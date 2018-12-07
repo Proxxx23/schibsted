@@ -2,7 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b4f769d-76e9-4617-bb6f-a6a06d2dae0c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Objects/DTO/RepositoryComparisonDTO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Objects/SimpleObjects/BasicComparison.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Objects/SimpleObjects/ClosedPullRequestsComparison.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Objects/SimpleObjects/DatesComparison.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Objects/SimpleObjects/ForksComparison.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Objects/SimpleObjects/NumberComparison.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Objects/SimpleObjects/OpenPullRequestsComparison.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Objects/SimpleObjects/StarsComparison.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Objects/SimpleObjects/WatchersComparison.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/StatisticsCounter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ApiConst.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ApiConst.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StatisticsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StatisticsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Objects/Commands/DetailedStatisticsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Objects/Commands/DetailedStatisticsQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Objects/Commands/DetailedStatisticsCommandCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Objects/Commands/DetailedStatisticsQueryCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Objects/Common/CommonCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Objects/Common/CommonCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTOCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTOCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Objects/DTO/UserRepositoryDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Objects/DTO/UserRepositoryDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Objects/DTO/ValidatorInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Objects/DTO/ResponseInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/GithubRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/GithubRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/GithubService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/GithubService.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,45 +38,48 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/api.php">
+        <entry file="file://$PROJECT_DIR$/app/Services/GithubService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+            <state relative-caret-position="262">
+              <caret line="107" column="44" selection-start-line="107" selection-start-column="44" selection-end-line="107" selection-end-column="44" />
+              <folding>
+                <element signature="e#57#74#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Services/GithubService.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatisticsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="68" column="20" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
+            <state relative-caret-position="702">
+              <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
               <folding>
-                <element signature="e#57#108#0#PHP" expanded="true" />
+                <element signature="e#65#82#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTOCollection.php">
+        <entry file="file://$PROJECT_DIR$/app/Services/StatisticsCounter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="379">
+              <caret line="216" column="34" lean-forward="true" selection-start-line="216" selection-start-column="34" selection-end-line="216" selection-end-column="34" />
               <folding>
-                <element signature="e#60#110#0#PHP" expanded="true" />
+                <element signature="e#57#74#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Objects/Commands/DetailedStatisticsCommandCollection.php">
+        <entry file="file://$PROJECT_DIR$/app/Objects/DTO/RepositoryComparisonDTO.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="63" column="20" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
+            <state relative-caret-position="515">
+              <caret line="118" column="44" lean-forward="true" selection-start-line="118" selection-start-column="44" selection-end-line="118" selection-end-column="44" />
               <folding>
-                <element signature="e#65#82#0#PHP" expanded="true" />
+                <element signature="e#60#119#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -64,38 +88,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Repositories/GithubRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/symfony/http-foundation/Response.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="130" column="18" selection-start-line="130" selection-start-column="18" selection-end-line="130" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Objects/DTO/ValidatorInterface.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InformationController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-              <folding>
-                <element signature="e#65#103#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="219">
+              <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -112,6 +106,8 @@
       <find>/repos/</find>
       <find>get(</find>
       <find>dd</find>
+      <find>compareLatestReleaseDates</find>
+      <find>$secondUsername = $secompareLatestReleaseDatescondRepository[0];</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -130,13 +126,11 @@
         <option value="$PROJECT_DIR$/app/ApiObjects/DTO/UserRepositoryDTO.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MainController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ListController.php" />
-        <option value="$PROJECT_DIR$/app/Objects/DTO/ValidatorInterface.php" />
         <option value="$PROJECT_DIR$/app/Exceptions/InvalidCollectionTypeException.php" />
         <option value="$PROJECT_DIR$/app/Objects/DTO/UserRepositoryDTOCollection.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/InformationController.php" />
         <option value="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailedStatisticsDTO.php" />
         <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/PullRequests.php" />
-        <option value="$PROJECT_DIR$/app/Objects/DTO/UserRepositoryDTO.php" />
         <option value="$PROJECT_DIR$/app/Objects/DTO/RepositoryForksAndPullsDTO.php" />
         <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/PullsAndForks.php" />
         <option value="$PROJECT_DIR$/vendor/knplabs/github-api/lib/Github/Api/User.php" />
@@ -145,15 +139,34 @@
         <option value="$PROJECT_DIR$/app/Objects/Commands/RepositoryDetailedStatisticsCommand.php" />
         <option value="$PROJECT_DIR$/app/Objects/Commands/RepositoryStatisticsComparsionCommand.php" />
         <option value="$PROJECT_DIR$/app/Objects/Commands/RepositoryStatisticsComparsionCommandCollection.php" />
-        <option value="$PROJECT_DIR$/app/ApiConst.php" />
         <option value="$PROJECT_DIR$/app/Objects/Commands/DetailedStatisticsCommandCollection.php" />
-        <option value="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTOCollection.php" />
         <option value="$PROJECT_DIR$/app/Objects/Common/CommonCollection.php" />
-        <option value="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTO.php" />
         <option value="$PROJECT_DIR$/app/Repositories/GithubRepository.php" />
-        <option value="$PROJECT_DIR$/app/Services/GithubService.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/StatisticsController.php" />
+        <option value="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTO.php" />
+        <option value="$PROJECT_DIR$/app/Objects/DTO/ValidatorInterface.php" />
+        <option value="$PROJECT_DIR$/app/Objects/DTO/ResponseInterface.php" />
+        <option value="$PROJECT_DIR$/app/Objects/DTO/UserRepositoryDTO.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
+        <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/BasicComparsion.php" />
+        <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/StarsCompared.php" />
+        <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/ForksCompared.php" />
+        <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/WatchersCompared.php" />
+        <option value="$PROJECT_DIR$/app/Objects/DTO/RepositoryComparsionDTO.php" />
+        <option value="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTOCollection.php" />
+        <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/DatesCompared.php" />
+        <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/StarsComparison.php" />
+        <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/WatchersComparison.php" />
+        <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/ForksComparison.php" />
+        <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/ClosedPullRequestsComparison.php" />
+        <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/OpenPullRequestsComparison.php" />
+        <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/BasicComparison.php" />
+        <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/NumberComparison.php" />
+        <option value="$PROJECT_DIR$/app/Objects/DTO/RepositoryComparisonDTO.php" />
+        <option value="$PROJECT_DIR$/app/ApiConst.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/StatisticsController.php" />
+        <option value="$PROJECT_DIR$/app/Services/GithubService.php" />
+        <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/DatesComparison.php" />
+        <option value="$PROJECT_DIR$/app/Services/StatisticsCounter.php" />
       </list>
     </option>
   </component>
@@ -284,12 +297,6 @@
               <item name="Laravel" type="b2602c69:ProjectViewProjectNode" />
               <item name="Laravel" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Exceptions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Laravel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Laravel" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -304,13 +311,6 @@
               <item name="Laravel" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Objects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Laravel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Laravel" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Objects" type="462c0819:PsiDirectoryNode" />
-              <item name="Commands" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Laravel" type="b2602c69:ProjectViewProjectNode" />
@@ -337,18 +337,6 @@
               <item name="Laravel" type="b2602c69:ProjectViewProjectNode" />
               <item name="Laravel" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Providers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Laravel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Laravel" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Repositories" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Laravel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Laravel" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -370,12 +358,13 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\WinNMP\WWW\Laravel\app\Objects\DTO" />
-      <recent name="C:\WinNMP\WWW\Laravel\app\Objects\Commands" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\WinNMP\WWW\Laravel\app\Repositories" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\WinNMP\WWW\Laravel\app\Objects\SimpleObjects" />
+      <recent name="C:\WinNMP\WWW\Laravel\app\Objects\DTO" />
+      <recent name="C:\WinNMP\WWW\Laravel\app\Objects\Commands" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -407,18 +396,29 @@
       <option name="presentableId" value="Default" />
       <updated>1543958855855</updated>
       <workItem from="1543958858123" duration="3340000" />
-      <workItem from="1544032071049" duration="15127000" />
+      <workItem from="1544032071049" duration="15192000" />
+      <workItem from="1544184513038" duration="17000" />
+      <workItem from="1544184569258" duration="10850000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18467000" />
+    <option name="totallyTimeSpent" value="29399000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1358" height="814" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2919877" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30123267" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -427,7 +427,7 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32991204" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
@@ -443,13 +443,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Schibsted/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -540,20 +533,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailedStatisticsDTO.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Objects/SimpleObjects/PullRequests.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailedStatisticsDTO.php" />
+    <entry file="file://$PROJECT_DIR$/app/Objects/SimpleObjects/PullRequests.php" />
     <entry file="file://$PROJECT_DIR$/vendor/knplabs/github-api/lib/Github/Api/AbstractApi.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
@@ -572,16 +553,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-495">
           <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Objects/DTO/UserRepositoryDTOCollection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-          <folding>
-            <element signature="e#60#110#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -613,41 +584,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Objects/DTO/UserRepositoryDTO.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1746">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ApiCOnsts.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Objects/Commands/DetailedStatisticsCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Objects/Commands/StatisticsComparsionCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ApiConst.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="15" lean-forward="true" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ApiCOnsts.php" />
+    <entry file="file://$PROJECT_DIR$/app/Objects/Commands/StatisticsComparsionCommand.php" />
     <entry file="file://$PROJECT_DIR$/app/Objects/Common/CommonCollection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2">
           <caret line="69" column="7" lean-forward="true" selection-start-line="69" selection-start-column="7" selection-end-line="69" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/http-foundation/Response.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2091">
+          <caret line="130" column="18" selection-start-line="130" selection-start-column="18" selection-end-line="130" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -661,37 +610,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTO.php">
+    <entry file="file://$PROJECT_DIR$/app/Objects/DTO/UserRepositoryDTOCollection.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
-          <caret line="143" column="54" selection-start-line="143" selection-start-column="54" selection-end-line="143" selection-end-column="54" />
+        <state relative-caret-position="187">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+          <folding>
+            <element signature="e#60#110#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
+    <entry file="file://$PROJECT_DIR$/app/Objects/Commands/DetailedStatisticsQueryCollection.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/GithubRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Objects/DTO/ValidatorInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Objects/Commands/DetailedStatisticsCommandCollection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
+        <state relative-caret-position="600">
           <caret line="63" column="20" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
           <folding>
             <element signature="e#65#82#0#PHP" expanded="true" />
@@ -699,49 +630,167 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/GithubService.php">
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="68" column="20" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
-          <folding>
-            <element signature="e#57#108#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="170">
+          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Objects/Commands/DetailedStatisticsQuery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Objects/DTO/ResponseInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Objects/DTO/UserRepositoryDTO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="12" column="19" lean-forward="true" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+        <state relative-caret-position="357">
+          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
           <folding>
             <element signature="e#65#104#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/http-foundation/Response.php">
+    <entry file="file://$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTOCollection.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="130" column="18" selection-start-line="130" selection-start-column="18" selection-end-line="130" selection-end-column="18" />
+        <state relative-caret-position="447">
+          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+          <folding>
+            <element signature="e#60#110#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Objects/SimpleObjects/StarsComparison.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Objects/SimpleObjects/WatchersComparison.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Objects/SimpleObjects/ForksComparison.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/GithubRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Objects/SimpleObjects/ClosedPullRequestsComparison.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="71" selection-start-line="15" selection-start-column="71" selection-end-line="15" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Objects/SimpleObjects/OpenPullRequestsComparison.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="22" column="28" lean-forward="true" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ApiConst.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="33" column="47" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Objects/SimpleObjects/BasicComparison.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="54" column="5" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="54" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Objects/SimpleObjects/NumberComparison.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/GithubService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="107" column="44" selection-start-line="107" selection-start-column="44" selection-end-line="107" selection-end-column="44" />
+          <folding>
+            <element signature="e#57#74#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatisticsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+        <state relative-caret-position="702">
+          <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
           <folding>
             <element signature="e#65#82#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTOCollection.php">
+    <entry file="file://$PROJECT_DIR$/app/Objects/SimpleObjects/DatesComparison.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="442">
+          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Objects/DTO/RepositoryComparisonDTO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="118" column="44" lean-forward="true" selection-start-line="118" selection-start-column="44" selection-end-line="118" selection-end-column="44" />
           <folding>
-            <element signature="e#60#110#0#PHP" expanded="true" />
+            <element signature="e#60#119#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/StatisticsCounter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="216" column="34" lean-forward="true" selection-start-line="216" selection-start-column="34" selection-end-line="216" selection-end-column="34" />
+          <folding>
+            <element signature="e#57#74#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

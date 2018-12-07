@@ -3,16 +3,11 @@
 namespace App\Objects\DTO;
 
 /**
- * Interface ValidatorInterface
+ * Interface ResponseInterface
  * @package App\Objects\DTO
  */
-interface ValidatorInterface
+interface ResponseInterface
 {
-
-    /**
-     * @return bool
-     */
-    public function isValid(): bool;
 
     /**
      * @return array

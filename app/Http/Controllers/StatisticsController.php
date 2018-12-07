@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\ApiConst;
-use App\Objects\Commands\DetailedStatisticsCommand;
-use App\Objects\Commands\DetailedStatisticsCommandCollection;
+use App\Objects\Commands\DetailedStatisticsQuery;
+use App\Objects\Commands\DetailedStatisticsQueryCollection;
 use App\Repositories\GithubRepository;
 use App\Services\GithubService;
+use App\Services\StatisticsCounter;
 use Illuminate\Http\Response;
 
 /**
@@ -24,7 +25,7 @@ final class StatisticsController extends Controller
      */
     public function repositoryDetails(string $username, string $repository): Response
     {
-        $detailedStatisticsCommand = (new DetailedStatisticsCommand())
+        $detailedStatisticsCommand = (new DetailedStatisticsQuery())
             ->setUsername($username)
             ->setRepositoryName($repository);
 
@@ -55,28 +56,28 @@ final class StatisticsController extends Controller
         $secondUsername = $secondRepository[0];
         $secondRepositoryName = $secondRepository[1];
 
-        $firstRepoStatisticsCommand = (new DetailedStatisticsCommand())
+        $firstRepoStatisticsQuery = (new DetailedStatisticsQuery())
             ->setUsername($firstUsername)
             ->setRepositoryName($firstRepositoryName);
 
-        $secondRepoStatisticsCommand = (new DetailedStatisticsCommand())
+        $secondRepoStatisticsQuery = (new DetailedStatisticsQuery())
             ->setUsername($secondUsername)
             ->setRepositoryName($secondRepositoryName);
 
-        $statisticsCommandCollection = new DetailedStatisticsCommandCollection();
-        $statisticsCommandCollection->addCollectionElements(
-            $firstRepoStatisticsCommand,
-            $secondRepoStatisticsCommand
+        $statisticsQueryCollection = new DetailedStatisticsQueryCollection();
+        $statisticsQueryCollection->addCollectionElements(
+            $firstRepoStatisticsQuery,
+            $secondRepoStatisticsQuery
         );
 
-        if (!$statisticsCommandCollection->isValid()) {
-            return new Response($statisticsCommandCollection->getValidationMessage(), 400);
+        if (!$statisticsQueryCollection->isValid()) {
+            return new Response($statisticsQueryCollection->getValidationMessage(), 400);
         }
 
-        $repositoryService = new GithubService(new GithubRepository());
+        $repositoryService = new GithubService(new GithubRepository(), new StatisticsCounter());
 
         return $this->prepareResponse(
-            $repositoryService->getComparedRepositoriesStatistics($statisticsCommandCollection)
+            $repositoryService->getRepositoriesComparedStatistics($statisticsQueryCollection)
         );
     }
 }

@@ -8,7 +8,7 @@ This application provides useful and convenient way to show statistics of GutHub
 
 ## Application has 4 abilities:
 
-### List user statistics
+### List user repositories
 `/api/repository/list/{gitHubUsername} (GET)`
 
 ### Show repository details
@@ -18,7 +18,7 @@ This application provides useful and convenient way to show statistics of GutHub
 `/api/repository/compare/{firstUsername}:{firstRepositoryName}/{secondUsername}:{secondRepositoryName} (GET)`
 
 ### Show user details
-`/api/user/info/{gitHubUsername}/{repositoryName} (GET)`
+`/api/user/info/{gitHubUsername} (GET)`
 
 Working server-side API: http://schibsted.piwolucja.pl/
 

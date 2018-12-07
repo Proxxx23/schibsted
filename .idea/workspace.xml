@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b4f769d-76e9-4617-bb6f-a6a06d2dae0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Objects/Common/ProblemResponse.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Objects/DTO/UserDetailsDTO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ValidationConst.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InformationController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StatisticsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RepositoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Objects/Commands/DetailedStatisticsQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Objects/Queries/DetailedStatisticsQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Objects/Commands/DetailedStatisticsQueryCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Objects/Queries/DetailedStatisticsQueryCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Objects/Common/CommonCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Objects/Common/CommonCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/GithubRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/GithubRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/GithubService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/GithubService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTOCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTOCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Objects/DTO/UserRepositoryDTOCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Objects/DTO/UserRepositoryDTOCollection.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,13 +25,37 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Services/GithubService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="109" column="15" selection-start-line="109" selection-start-column="15" selection-end-line="109" selection-end-column="15" />
+            <state relative-caret-position="262">
+              <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
               <folding>
                 <element signature="e#57#92#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTOCollection.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+              <folding>
+                <element signature="e#60#110#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Objects/DTO/UserRepositoryDTOCollection.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+              <folding>
+                <element signature="e#60#110#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -129,6 +136,7 @@
       <find>repos</find>
       <find>user</find>
       <find>toJson</find>
+      <find>addCollectionElement</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -139,7 +147,6 @@
       <list>
         <option value="$PROJECT_DIR$/app/Http/Controllers/ListController.php" />
         <option value="$PROJECT_DIR$/app/Exceptions/InvalidCollectionTypeException.php" />
-        <option value="$PROJECT_DIR$/app/Objects/DTO/UserRepositoryDTOCollection.php" />
         <option value="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailedStatisticsDTO.php" />
         <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/PullRequests.php" />
         <option value="$PROJECT_DIR$/app/Objects/DTO/RepositoryForksAndPullsDTO.php" />
@@ -156,7 +163,6 @@
         <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/ForksCompared.php" />
         <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/WatchersCompared.php" />
         <option value="$PROJECT_DIR$/app/Objects/DTO/RepositoryComparsionDTO.php" />
-        <option value="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTOCollection.php" />
         <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/DatesCompared.php" />
         <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/StarsComparison.php" />
         <option value="$PROJECT_DIR$/app/Objects/SimpleObjects/WatchersComparison.php" />
@@ -188,6 +194,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/RepositoryController.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Test.php" />
         <option value="$PROJECT_DIR$/app/Services/GithubService.php" />
+        <option value="$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTOCollection.php" />
+        <option value="$PROJECT_DIR$/app/Objects/DTO/UserRepositoryDTOCollection.php" />
       </list>
     </option>
   </component>
@@ -438,7 +446,7 @@
       <workItem from="1543958858123" duration="3340000" />
       <workItem from="1544032071049" duration="15192000" />
       <workItem from="1544184513038" duration="17000" />
-      <workItem from="1544184569258" duration="17857000" />
+      <workItem from="1544184569258" duration="17944000" />
     </task>
     <servers />
   </component>
@@ -460,7 +468,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36406000" />
+    <option name="totallyTimeSpent" value="36493000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -488,7 +496,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32991204" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32991204" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32991204" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -536,16 +544,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2091">
           <caret line="130" column="18" selection-start-line="130" selection-start-column="18" selection-end-line="130" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Objects/DTO/UserRepositoryDTOCollection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-          <folding>
-            <element signature="e#60#110#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -673,16 +671,6 @@
           <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
           <folding>
             <element signature="e#60#104#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTOCollection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-29">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#60#110#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -849,10 +837,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Services/GithubService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="109" column="15" selection-start-line="109" selection-start-column="15" selection-end-line="109" selection-end-column="15" />
+        <state relative-caret-position="262">
+          <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
           <folding>
             <element signature="e#57#92#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Objects/DTO/RepositoryDetailsDTOCollection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+          <folding>
+            <element signature="e#60#110#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Objects/DTO/UserRepositoryDTOCollection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+          <folding>
+            <element signature="e#60#110#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -23,15 +23,18 @@ class RepositoryDetailsDTOCollection extends CommonCollection
 
     /**
      * @param $element
+     * @return CommonCollection
      * @throws InvalidCollectionTypeException
      */
-    public function addCollectionElement($element): void
+    public function addCollectionElement($element): CommonCollection
     {
         if (!$element instanceof self::$collectionType) {
             throw new InvalidCollectionTypeException();
         }
 
         parent::addCollectionElement($element);
+
+        return $this;
     }
 
     /**

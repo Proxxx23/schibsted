@@ -49,18 +49,18 @@ final class RepositoryController extends Controller
      */
     public function repositoryDetails(string $username, string $repository): Response
     {
-        $detailedStatisticsCommand = (new DetailedStatisticsQuery())
+        $detailedStatisticsQuery = (new DetailedStatisticsQuery())
             ->setUsername($username)
             ->setRepositoryName($repository);
 
-        if (null !== $detailedStatisticsCommand->validate()) {
-            return $this->problemResponse($detailedStatisticsCommand->validate());
+        if (null !== $detailedStatisticsQuery->validate()) {
+            return $this->problemResponse($detailedStatisticsQuery->validate());
         }
 
         $repositoryService = new GitHubService(new GitHubRepository(), new StatisticsCounter());
 
         return $this->prepareResponse(
-            $repositoryService->getRepositoryDetailedStatistics($detailedStatisticsCommand)
+            $repositoryService->getRepositoryDetailedStatistics($detailedStatisticsQuery)
         );
     }
 

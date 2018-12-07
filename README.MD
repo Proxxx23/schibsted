@@ -8,18 +8,18 @@ To boot up an application using local environment:
 
 Application has 4 abilities:
 
-###List user statistics
+### List user statistics
 `/api/repository/list/{gitHubUsername} (GET)`
 
-###Show repository details
+### Show repository details
 `/api/repository/stats/{gitHubUsername}/{repositoryName} (GET)` 
 
-###Compare two repositories
+### Compare two repositories
 `/api/repository/compare/{firstUsername}:{firstRepositoryName}/{secondUsername}:{secondRepositoryName} (GET)`
 
-###Show user details
+### Show user details
 `/api/user/info/{gitHubUsername}/{repositoryName} (GET)`
 
 Working server-side API: http://schibsted.piwolucja.pl/
 
-###!!! Please note that GitHub API allows only to make 60 requests. Comparison uses 6 requests! 
+### !!! Please note that GitHub API allows only to make 60 requests. Comparison uses 6 requests! 

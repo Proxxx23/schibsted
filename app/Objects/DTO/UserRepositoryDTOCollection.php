@@ -17,7 +17,9 @@ class UserRepositoryDTOCollection extends CommonCollection
     protected static $collectionType = UserRepositoryDTO::class;
 
     /**
-     * @param $element
+     * @inheritdoc
+     *
+     * @param object $element
      * @return CommonCollection
      * @throws InvalidCollectionTypeException
      */

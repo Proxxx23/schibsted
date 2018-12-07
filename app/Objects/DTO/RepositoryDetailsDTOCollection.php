@@ -25,21 +25,23 @@ class RepositoryDetailsDTOCollection extends CommonCollection
     private $comparisonData;
 
     /**
-     * @param $element
+     * @inheritdoc
+     *
+     * @param object $element
+     *
      * @return CommonCollection
      * @throws InvalidCollectionTypeException
      */
     public function addCollectionElement($element): CommonCollection
     {
         foreach (self::$collectionTypes as $collectionType) {
-            if (!$element instanceof $collectionType) {
-                throw new InvalidCollectionTypeException();
+            if ($element instanceof $collectionType) {
+                parent::addCollectionElement($element);
+                return $this;
             }
         }
 
-        parent::addCollectionElement($element);
-
-        return $this;
+        throw new InvalidCollectionTypeException();
     }
 
     /**

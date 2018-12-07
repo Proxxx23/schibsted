@@ -22,7 +22,10 @@ class DetailedStatisticsQueryCollection extends CommonCollection
     private $validationMessage;
 
     /**
-     * @param $element
+     * @inheritdoc
+     *
+     * @param object $element
+     * @return CommonCollection
      * @throws InvalidCollectionTypeException
      */
     public function addCollectionElement($element): CommonCollection
@@ -37,7 +40,10 @@ class DetailedStatisticsQueryCollection extends CommonCollection
     }
 
     /**
-     * @param mixed ...$elements
+     * @inheritdoc
+     *
+     * @param object ...$elements
+     * @return CommonCollection
      * @throws InvalidCollectionTypeException
      */
     public function addCollectionElements(...$elements): CommonCollection

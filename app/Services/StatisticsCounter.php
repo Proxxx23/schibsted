@@ -202,7 +202,7 @@ final class StatisticsCounter
 
         $difference = $secondRepoDateObj
             ->diff($firstRepoDateObj)
-            ->format('%m m %d d %h h %i m %s s');
+            ->format('%y y %m m %d d %h h %i m %s s');
 
         return (new DatesComparison())
             ->setRepositoryName($repoName)

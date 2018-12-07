@@ -11,7 +11,7 @@ use App\Objects\DTO\ResponseInterface;
 class CommonCollection implements ResponseInterface
 {
     /**
-     * @var $collectionType
+     * @var \stdClass $collectionType
      */
     protected static $collectionType;
 
@@ -23,7 +23,7 @@ class CommonCollection implements ResponseInterface
     /**
      * Adds element to collection
      *
-     * @param $element
+     * @param object $element
      * @return CommonCollection
      */
     public function addCollectionElement($element): CommonCollection
@@ -35,7 +35,7 @@ class CommonCollection implements ResponseInterface
     /**
      * Adds more than one element to collection
      *
-     * @param mixed ...$elements
+     * @param object ...$elements
      * @return CommonCollection
      */
     public function addCollectionElements(...$elements): CommonCollection
@@ -53,9 +53,9 @@ class CommonCollection implements ResponseInterface
     /**
      * Delete element from collection
      *
-     * @param $index
+     * @param int $index
      */
-    public function remove($index): void
+    public function remove(int $index): void
     {
         unset($this->elements[$index]);
     }

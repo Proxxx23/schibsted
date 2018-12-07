@@ -18,29 +18,29 @@ use App\Objects\SimpleObjects\WatchersComparison;
 final class RepositoryComparisonDTO
 {
     /**
-     * @var StarsComparison $starsCountComparison
+     * @var StarsComparison $starsNumberComparison
      */
-    private $starsCountComparison;
+    private $starsNumberComparison;
 
     /**
-     * @var ForksComparison $forksCountComparison
+     * @var ForksComparison $forksNumberComparison
      */
-    private $forksCountComparison;
+    private $forksNumberComparison;
 
     /**
-     * @var WatchersComparison $watchersCountComparison
+     * @var WatchersComparison $watchersNumberComparison
      */
-    private $watchersCountComparison;
+    private $watchersNumberComparison;
 
     /**
-     * @var OpenPullRequestsComparison $openPullRequestsComparison
+     * @var OpenPullRequestsComparison $openPullRequestsNumberComparison
      */
-    private $openPullRequestsComparison;
+    private $openPullRequestsNumberComparison;
 
     /**
-     * @var ClosedPullRequestsComparison $closedPullRequestsComparison
+     * @var ClosedPullRequestsComparison $closedPullRequestsNumberComparison
      */
-    private $closedPullRequestsComparison;
+    private $closedPullRequestsNumberComparison;
 
     /**
      * @var DatesComparison $datesComparison
@@ -49,67 +49,67 @@ final class RepositoryComparisonDTO
 
     /**
      * RepositoryComparisonDTO constructor.
-     * @param StarsComparison $starsCountComparison
-     * @param ForksComparison $forksCountComparison
-     * @param WatchersComparison $watchersCountComparison
-     * @param OpenPullRequestsComparison $openPullRequestsComparison
-     * @param ClosedPullRequestsComparison $closedPullRequestsComparison
+     * @param StarsComparison $starsNumberComparison
+     * @param ForksComparison $forksNumberComparison
+     * @param WatchersComparison $watchersCountNumber
+     * @param OpenPullRequestsComparison $openPullRequestsNumberComparison
+     * @param ClosedPullRequestsComparison $closedPullRequestsNumberComparison
      * @param DatesComparison $datesComparison
      */
     public function __construct(
-        StarsComparison $starsCountComparison,
-        ForksComparison $forksCountComparison,
-        WatchersComparison $watchersCountComparison,
-        OpenPullRequestsComparison $openPullRequestsComparison,
-        ClosedPullRequestsComparison $closedPullRequestsComparison,
+        StarsComparison $starsNumberComparison,
+        ForksComparison $forksNumberComparison,
+        WatchersComparison $watchersCountNumber,
+        OpenPullRequestsComparison $openPullRequestsNumberComparison,
+        ClosedPullRequestsComparison $closedPullRequestsNumberComparison,
         DatesComparison $datesComparison
     ) {
-        $this->starsCountComparison = $starsCountComparison;
-        $this->forksCountComparison = $forksCountComparison;
-        $this->watchersCountComparison = $watchersCountComparison;
-        $this->openPullRequestsComparison = $openPullRequestsComparison;
-        $this->closedPullRequestsComparison = $closedPullRequestsComparison;
+        $this->starsNumberComparison = $starsNumberComparison;
+        $this->forksNumberComparison = $forksNumberComparison;
+        $this->watchersNumberComparison = $watchersCountNumber;
+        $this->openPullRequestsNumberComparison = $openPullRequestsNumberComparison;
+        $this->closedPullRequestsNumberComparison = $closedPullRequestsNumberComparison;
         $this->datesComparison = $datesComparison;
     }
 
     /**
      * @return StarsComparison
      */
-    public function getStarsCountComparison(): StarsComparison
+    public function getStarsNumberComparison(): StarsComparison
     {
-        return $this->starsCountComparison;
+        return $this->starsNumberComparison;
     }
 
     /**
      * @return ForksComparison
      */
-    public function getForksCountComparison(): ForksComparison
+    public function getForksNumberComparison(): ForksComparison
     {
-        return $this->forksCountComparison;
+        return $this->forksNumberComparison;
     }
 
     /**
      * @return WatchersComparison
      */
-    public function getWatchersCountComparison(): WatchersComparison
+    public function getWatchersNumberComparison(): WatchersComparison
     {
-        return $this->watchersCountComparison;
+        return $this->watchersNumberComparison;
     }
 
     /**
      * @return OpenPullRequestsComparison
      */
-    public function getOpenPullRequestsComparison(): OpenPullRequestsComparison
+    public function getOpenPullRequestsNumberComparison(): OpenPullRequestsComparison
     {
-        return $this->openPullRequestsComparison;
+        return $this->openPullRequestsNumberComparison;
     }
 
     /**
      * @return ClosedPullRequestsComparison
      */
-    public function getClosedPullRequestsComparison(): ClosedPullRequestsComparison
+    public function getClosedPullRequestsNumberComparison(): ClosedPullRequestsComparison
     {
-        return $this->closedPullRequestsComparison;
+        return $this->closedPullRequestsNumberComparison;
     }
 
     /**
@@ -126,12 +126,14 @@ final class RepositoryComparisonDTO
     public function toArray(): array
     {
         return [
-            'starsCountComparison' => $this->starsCountComparison,
-            'forksCountComparison' => $this->forksCountComparison,
-            'watchersCountComparison' => $this->watchersCountComparison,
-            'openPullRequestsComparison' => $this->openPullRequestsComparison,
-            'closedPullRequestsComparison' => $this->closedPullRequestsComparison,
-            'datesComparison' => $this->datesComparison,
+            'comparison' => [
+                'starsNumberComparison' => $this->starsNumberComparison->toArray(),
+                'forksNumberComparison' => $this->forksNumberComparison->toArray(),
+                'watchersNumberComparison' => $this->watchersNumberComparison->toArray(),
+                'openPullRequestsNumberComparison' => $this->openPullRequestsNumberComparison->toArray(),
+                'closedPullRequestsNumberComparison' => $this->closedPullRequestsNumberComparison->toArray(),
+                'datesComparison' => $this->datesComparison->toArray(),
+            ]
         ];
     }
 

@@ -20,6 +20,7 @@ final class RepositoryController extends Controller
 {
     /**
      * Lists user public repositories
+     * @URL /api/repository/list/{gitHubUsername} (GET)
      *
      * @param string $gitHubUser
      * @return JsonResponse
@@ -42,6 +43,7 @@ final class RepositoryController extends Controller
 
     /**
      * Returns details about given repository
+     * @URL: /api/repository/stats/{gitHubUsername}/{repositoryName} (GET)
      *
      * @param string $username
      * @param string $repository
@@ -66,6 +68,7 @@ final class RepositoryController extends Controller
 
     /**
      * Returns compared data of two repositories
+     * @URL /api/repository/compare/{firstUsername}:{firstRepositoryName}/{secondUsername}:{secondRepositoryName} (GET)
      *
      * @param string $firstSet
      * @param string $secondSet

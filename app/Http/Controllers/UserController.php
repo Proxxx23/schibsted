@@ -17,6 +17,7 @@ final class UserController extends Controller
 {
     /**
      * Retrieves details about github user
+     * @URL /api/user/info/{gitHubUsername} (GET)
      *
      * @param string $gitHubUser
      * @return JsonResponse

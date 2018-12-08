@@ -7,10 +7,7 @@ use App\Repositories\GitHubRepository;
 use App\Services\GitHubService;
 use App\Services\StatisticsCounter;
 use App\ValidationConst;
-use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Response;
-use mysql_xdevapi\Exception;
 
 /**
  * Class UserController

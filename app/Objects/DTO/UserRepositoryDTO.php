@@ -131,23 +131,16 @@ final class UserRepositoryDTO implements ResponseInterface
     }
 
     /**
-     * @return string
-     */
-    public function toJson(): string
-    {
-        return json_encode($this->toArray(), JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
-    }
-
-    /**
      * Formats date
      *
      * @param string $date
+     * @param string $format
      * @return string
      * @throws \Exception
      */
-    private function formatDate(string $date): string
+    private function formatDate(string $date, $format = 'Y-m-d H:i:s')
     {
-        $dateObj = new \DateTime($date);
-        return $dateObj->format('Y-m-d H:i:s');
+        $dateObject = new \DateTime($date);
+        return $dateObject->format($format);
     }
 }

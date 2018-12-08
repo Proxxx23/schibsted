@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Objects\Common\ProblemResponse;
 use App\Objects\DTO\ResponseInterface;
-use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller as BaseController;
 
 /**
@@ -13,33 +13,49 @@ use Illuminate\Routing\Controller as BaseController;
  */
 class Controller extends BaseController
 {
+    /**
+     * @var array $headers
+     */
+    public static $headers = ['Content-Type' => 'application/json; charset=utf-8'];
+
+    /**
+     * @var int $jsonOptions
+     */
+    public static $jsonOptions = JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT;
+
 
     /**
      * Prepares response to show to user
      *
      * @param ResponseInterface $result
-     * @return Response
+     * @return JsonResponse
      */
-    protected function prepareResponse(ResponseInterface $result): Response
+    protected function prepareResponse(ResponseInterface $result): JsonResponse
     {
         if (empty($result->toArray())) {
             $problemResponse = (new ProblemResponse())
-                ->setHttpCode(Response::HTTP_NO_CONTENT)
-                ->setMessage(Response::$statusTexts[204]);
+                ->setHttpCode(204)
+                ->setMessage('No content');
             return $this->problemResponse($problemResponse);
         }
 
-        return new Response($result->toJson(), Response::HTTP_OK);
+        return response()
+            ->json($result->toArray(), 200, self::$headers, self::$jsonOptions);
     }
 
     /**
      * Returns response with error code
      *
      * @param ProblemResponse $problemResponse
-     * @return Response
+     * @return JsonResponse
      */
-    protected function problemResponse(ProblemResponse $problemResponse): Response
+    protected function problemResponse(ProblemResponse $problemResponse): JsonResponse
     {
-        return new Response($problemResponse->getHttpCode(), $problemResponse->getMessage());
+        return response()
+            ->json($problemResponse->toArray(),
+                $problemResponse->getHttpCode(),
+                self::$headers,
+                self::$jsonOptions
+            );
     }
 }

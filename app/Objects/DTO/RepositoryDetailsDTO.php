@@ -151,12 +151,4 @@ final class RepositoryDetailsDTO implements ResponseInterface
             'latestReleaseDate' => $this->latestReleaseDate,
         ];
     }
-
-    /**
-     * @return string
-     */
-    public function toJson(): string
-    {
-        return json_encode($this->toArray());
-    }
 }

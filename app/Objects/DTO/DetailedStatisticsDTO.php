@@ -79,7 +79,7 @@ final class DetailedStatisticsDTO
      * @return string
      * @throws \Exception
      */
-    public function formatDate(string $date, $format = 'Y-m-d H:i:s')
+    private function formatDate(string $date, $format = 'Y-m-d H:i:s')
     {
         $dateObject = new \DateTime($date);
         return $dateObject->format($format);

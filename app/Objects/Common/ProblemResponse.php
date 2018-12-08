@@ -53,4 +53,15 @@ class ProblemResponse
         $this->message = $message;
         return $this;
     }
+
+    /**
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return [
+            'httpCode' => $this->httpCode,
+            'message' => $this->message,
+        ];
+    }
 }

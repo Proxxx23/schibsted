@@ -10,7 +10,7 @@ use App\Repositories\GitHubRepository;
 use App\Services\GitHubService;
 use App\Services\StatisticsCounter;
 use App\ValidationConst;
-use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
 
 /**
  * Class RepositoryController
@@ -22,9 +22,9 @@ final class RepositoryController extends Controller
      * Lists user public repositories
      *
      * @param string $gitHubUser
-     * @return Response
+     * @return JsonResponse
      */
-    public function listUserRepositories(string $gitHubUser): Response
+    public function listUserRepositories(string $gitHubUser): JsonResponse
     {
         if (strlen($gitHubUser) <= 1) {
             return $this->problemResponse(
@@ -45,9 +45,9 @@ final class RepositoryController extends Controller
      *
      * @param string $username
      * @param string $repository
-     * @return Response
+     * @return JsonResponse
      */
-    public function repositoryDetails(string $username, string $repository): Response
+    public function repositoryDetails(string $username, string $repository): JsonResponse
     {
         $detailedStatisticsQuery = (new DetailedStatisticsQuery())
             ->setUsername($username)
@@ -69,10 +69,10 @@ final class RepositoryController extends Controller
      *
      * @param string $firstSet
      * @param string $secondSet
-     * @return Response
+     * @return JsonResponse
      * @throws \App\Exceptions\InvalidCollectionTypeException
      */
-    public function compareRepositories(string $firstSet, string $secondSet): Response
+    public function compareRepositories(string $firstSet, string $secondSet): JsonResponse
     {
         $firstRepository = explode(':', $firstSet);
         $secondRepository = explode(':', $secondSet);

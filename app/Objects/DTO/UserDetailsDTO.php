@@ -170,16 +170,22 @@ final class UserDetailsDTO implements ResponseInterface
             'repositoriesCount' => $this->reposCount,
             'followers' => $this->followers,
             'following' => $this->following,
-            'userSince' => $this->userSince,
-            'lastUpdate' => $this->lastUpdate,
+            'userSince' => $this->formatDate($this->userSince),
+            'lastUpdate' => $this->formatDate($this->lastUpdate),
         ];
     }
 
     /**
+     * Formats date
+     *
+     * @param string $date
+     * @param string $format
      * @return string
+     * @throws \Exception
      */
-    public function toJson(): string
+    private function formatDate(string $date, $format = 'Y-m-d H:i:s')
     {
-        return json_encode($this->toArray(), JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+        $dateObject = new \DateTime($date);
+        return $dateObject->format($format);
     }
 }

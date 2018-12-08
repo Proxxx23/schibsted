@@ -12,9 +12,4 @@ interface ResponseInterface
      * @return array
      */
     public function toArray(): array;
-
-    /**
-     * @return string
-     */
-    public function toJson(): string;
 }

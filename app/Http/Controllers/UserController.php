@@ -7,7 +7,10 @@ use App\Repositories\GitHubRepository;
 use App\Services\GitHubService;
 use App\Services\StatisticsCounter;
 use App\ValidationConst;
+use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
+use mysql_xdevapi\Exception;
 
 /**
  * Class UserController
@@ -19,9 +22,9 @@ final class UserController extends Controller
      * Retrieves details about github user
      *
      * @param string $gitHubUser
-     * @return Response
+     * @return JsonResponse
      */
-    public function userDetails(string $gitHubUser): Response
+    public function userDetails(string $gitHubUser): JsonResponse
     {
         if (strlen($gitHubUser) <= 1) {
             $problemResponse = (new ProblemResponse())

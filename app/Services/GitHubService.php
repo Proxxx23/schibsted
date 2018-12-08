@@ -93,6 +93,7 @@ final class GitHubService
      * @param DetailedStatisticsQueryCollection $detailedStatisticsQueryCollection
      * @return RepositoryDetailsDTOCollection
      * @throws \App\Exceptions\InvalidCollectionTypeException
+     * @throws \Exception
      */
     public function getRepositoriesComparedStatistics(
         DetailedStatisticsQueryCollection $detailedStatisticsQueryCollection

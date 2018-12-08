@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\ApiConst;
 use App\Objects\DTO\RepositoryDetailsDTO;
-use App\Objects\DTO\RepositoryDetailsDTOCollection;
 use App\Objects\SimpleObjects\BasicComparison;
 use App\Objects\SimpleObjects\ClosedPullRequestsComparison;
 use App\Objects\SimpleObjects\DatesComparison;
@@ -143,8 +142,8 @@ final class StatisticsCounter
     /**
      * Compare closed pull requests number between two repositories
      *
-     * @param RepositoryDetailsDTOCollection $firstRepo
-     * @param RepositoryDetailsDTOCollection $secondRepo
+     * @param RepositoryDetailsDTO $firstRepo
+     * @param RepositoryDetailsDTO $secondRepo
      * @return BasicComparison
      */
     public function compareClosedPullRequestsNumber(

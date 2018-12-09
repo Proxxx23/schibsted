@@ -2,9 +2,11 @@
 
 namespace Tests\Unit;
 
+use App\Objects\Common\ApiProblem;
 use App\Objects\DTO\UserDetailsDTO;
 use App\Objects\Queries\DetailedStatisticsQuery;
 use App\Objects\Queries\DetailedStatisticsQueryCollection;
+use App\ValidationConst;
 use Tests\TestCase;
 
 /**
@@ -29,23 +31,23 @@ class GitHubStatisticsTest extends TestCase
         'updated_at' => '2018-12-07',
     ];
 
-    public function testDetailedStatisticsQueryCanBeInstantiated()
+    public function testDetailedStatisticsQueryCanBeInstantiated(): void
     {
         self::assertInstanceOf(DetailedStatisticsQuery::class, new DetailedStatisticsQuery());
     }
 
-    public function testDetailedStatisticsQueryCollectionCanBeInstantiated()
+    public function testDetailedStatisticsQueryCollectionCanBeInstantiated(): void
     {
         self::assertInstanceOf(DetailedStatisticsQueryCollection::class,
             new DetailedStatisticsQueryCollection());
     }
 
-    public function testUserDetailsDTOCanBeInstantiated()
+    public function testUserDetailsDTOCanBeInstantiated(): void
     {
         self::assertInstanceOf(UserDetailsDTO::class, new UserDetailsDTO(self::$dataMock));
     }
 
-    public function testUserDetailsDTOReturnsProperData()
+    public function testUserDetailsDTOReturnsProperData(): void
     {
         $userDetails = new UserDetailsDTO(self::$dataMock);
 
@@ -61,7 +63,7 @@ class GitHubStatisticsTest extends TestCase
         self::assertInternalType('string', $userDetails->getLastUpdate());
     }
 
-    public function testUserDetailsDTOReturnsProperArray()
+    public function testUserDetailsDTOReturnsProperArray(): void
     {
         $userDetails = new UserDetailsDTO(self::$dataMock);
 
@@ -69,12 +71,62 @@ class GitHubStatisticsTest extends TestCase
         self::assertInternalType('array', $userDetails->toArray());
     }
 
-    public function testUserDetailsDTOReturnsProperJson()
+    /**
+     * @return array
+     */
+    public function providerWebAddresses(): array
     {
-        $userDetails = new UserDetailsDTO(self::$dataMock);
+        return [
+            ['www.webaddress.com'],
+            ['http://webaddress.com'],
+            ['https://webaddress.com'],
+        ];
+    }
 
-        self::assertNotEquals('[]', $userDetails->toJson());
-        self::assertStringStartsWith('{', $userDetails->toJson());
-        self::assertStringEndsWith('}', $userDetails->toJson());
+    /**
+     * @dataProvider providerWebAddresses
+     */
+    public function testDetailedStatisticsQueryReturnsApiProblemOnRepositoryWebAddressGiven(
+        string $webAddress
+    ): void
+    {
+        $mock = [
+            'username' => 'Username',
+            'repositoryName' => $webAddress,
+        ];
+
+        $instance = (new DetailedStatisticsQuery())
+            ->setUsername($mock['username'])
+            ->setRepositoryName($mock['repositoryName']);
+
+        self::assertInstanceOf(ApiProblem::class, $instance->validate());
+        self::assertEquals(ValidationConst::PROVIDE_REPOSITORY_NAME, $instance->validate()
+            ->getDetail()
+        );
+    }
+
+    public function testDetailedStatisticsQueryReturnsApiProblemOnTooShortUsername(): void
+    {
+        $instance = (new DetailedStatisticsQuery())
+            ->setUsername('a')
+            ->setRepositoryName('reponame');
+
+        self::assertInstanceOf(ApiProblem::class, $instance->validate());
+        self::assertEquals(ValidationConst::INVALID_ARGUMENT_LENGTH_DETAIL, $instance->validate()
+            ->getDetail()
+        );
+    }
+
+
+    public function testDetailedStatisticsQueryReturnsApiProblemOnTooShortRepositoryName(): void
+    {
+        $instance = (new DetailedStatisticsQuery())
+            ->setUsername('Test')
+            ->setRepositoryName('b');
+
+        self::assertInstanceOf(ApiProblem::class, $instance->validate());
+        self::assertEquals(ValidationConst::INVALID_ARGUMENT_LENGTH_DETAIL, $instance->validate()
+            ->getDetail()
+        );
     }
 }

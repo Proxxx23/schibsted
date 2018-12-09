@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ApiConst;
-use App\Objects\Common\ProblemResponse;
+use App\Objects\Common\ApiProblem;
 use App\Objects\Queries\DetailedStatisticsQuery;
 use App\Objects\Queries\DetailedStatisticsQueryCollection;
 use App\Repositories\GitHubRepository;
@@ -29,9 +28,10 @@ final class RepositoryController extends Controller
     {
         if (strlen($gitHubUser) <= 1) {
             return $this->problemResponse(
-                (new ProblemResponse())
-                    ->setHttpCode(400)
-                    ->setMessage(ValidationConst::INVALID_LENGTH)
+                (new ApiProblem())
+                    ->setTitle(ValidationConst::INVALID_ARGUMENT_LENGTH)
+                    ->setDetail(ValidationConst::INVALID_ARGUMENT_LENGTH_DETAIL)
+                    ->setStatus(400)
             );
         }
 
@@ -81,10 +81,11 @@ final class RepositoryController extends Controller
         $secondRepository = explode(':', $secondSet);
 
         if (count($firstRepository) < 2 || count($secondRepository) < 2) {
-            $problemResponse = (new ProblemResponse())
-                ->setMessage(ApiConst::PROVIDE_WITH_COLON)
-                ->setHttpCode(400);
-            return $this->problemResponse($problemResponse);
+            $apiProblem = (new ApiProblem())
+                ->setTitle(ValidationConst::INVALID_ARGUMENT)
+                ->setDetail(ValidationConst::PROVIDE_WITH_COLON)
+                ->setStatus(400);
+            return $this->problemResponse($apiProblem);
         }
 
         [$firstUsername, $firstRepositoryName] = $firstRepository;

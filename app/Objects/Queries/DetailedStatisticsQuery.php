@@ -2,7 +2,7 @@
 
 namespace App\Objects\Queries;
 
-use App\Objects\Common\ProblemResponse;
+use App\Objects\Common\ApiProblem;
 use App\ValidationConst;
 
 /**
@@ -60,21 +60,24 @@ final class DetailedStatisticsQuery
     /**
      * Validator
      *
-     * @return ProblemResponse|null
+     * @return ApiProblem|null
      */
-    public function validate(): ?ProblemResponse
+    public function validate(): ?ApiProblem
     {
-        if (false !== strpos('http://', $this->repositoryName) ||
-            false !== strpos('www.', $this->repositoryName)) {
-            return (new ProblemResponse())
-                ->setHttpCode(400)
-                ->setMessage(ValidationConst::PROVIDE_REPOSITORY_NAME);
+        if (false !== strpos($this->repositoryName, 'http://') ||
+            false !== strpos($this->repositoryName, 'https://') ||
+            false !== strpos($this->repositoryName, 'www.')) {
+            return (new ApiProblem())
+                ->setTitle(ValidationConst::INVALID_ARGUMENT)
+                ->setDetail(ValidationConst::PROVIDE_REPOSITORY_NAME)
+                ->setStatus(400);
         }
 
         if (strlen($this->username) <= 1 || strlen($this->repositoryName) <= 1) {
-            (new ProblemResponse())
-                ->setHttpCode(400)
-                ->setMessage(ValidationConst::INVALID_LENGTH);
+            return (new ApiProblem())
+                ->setTitle(ValidationConst::INVALID_ARGUMENT_LENGTH)
+                ->setDetail(ValidationConst::INVALID_ARGUMENT_LENGTH_DETAIL)
+                ->setStatus(400);
         }
 
         return null;

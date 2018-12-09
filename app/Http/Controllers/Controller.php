@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Objects\Common\ProblemResponse;
+use App\Objects\Common\ApiProblem;
 use App\Objects\DTO\ResponseInterface;
+use App\ValidationConst;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller as BaseController;
 
@@ -14,18 +15,29 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     /**
-     * @var array $headers
+     * @var array $jsonResponseHeaders
      */
-    public static $headers = ['Content-Type' => 'application/json; charset=utf-8'];
+    public static $jsonResponseHeaders = [
+        'Content-Type' => 'application/json; charset=utf-8'
+    ];
+
+    /**
+     * @var array $apiProblemHeaders
+     */
+    public static $apiProblemHeaders = [
+        'Content-Type' => 'application/problem+json; charset=utf-8'
+    ];
 
     /**
      * @var int $jsonOptions
      */
-    public static $jsonOptions = JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT;
+    public static $jsonOptions = JSON_UNESCAPED_UNICODE |
+    JSON_UNESCAPED_SLASHES |
+    JSON_PRETTY_PRINT;
 
 
     /**
-     * Prepares response to show to user
+     * Prepares response
      *
      * @param ResponseInterface $result
      * @return JsonResponse
@@ -33,28 +45,29 @@ class Controller extends BaseController
     protected function prepareResponse(ResponseInterface $result): JsonResponse
     {
         if (empty($result->toArray())) {
-            $problemResponse = (new ProblemResponse())
-                ->setHttpCode(204)
-                ->setMessage('No content');
-            return $this->problemResponse($problemResponse);
+            $apiProblem = (new ApiProblem())
+                ->setTitle(ValidationConst::EMPTY_RESPONSE)
+                ->setDetail(ValidationConst::EMPTY_RESPONSE_DETAIL)
+                ->setStatus(204);
+            return $this->problemResponse($apiProblem);
         }
 
         return response()
-            ->json($result->toArray(), 200, self::$headers, self::$jsonOptions);
+            ->json($result->toArray(), 200, self::$jsonResponseHeaders, self::$jsonOptions);
     }
 
     /**
-     * Returns response with error code
+     * Returns Api Problem response
      *
-     * @param ProblemResponse $problemResponse
+     * @param ApiProblem $apiProblem
      * @return JsonResponse
      */
-    protected function problemResponse(ProblemResponse $problemResponse): JsonResponse
+    protected function problemResponse(ApiProblem $apiProblem): JsonResponse
     {
         return response()
-            ->json($problemResponse->toArray(),
-                $problemResponse->getHttpCode(),
-                self::$headers,
+            ->json($apiProblem->toArray(),
+                $apiProblem->getStatus(),
+                self::$apiProblemHeaders,
                 self::$jsonOptions
             );
     }
